@@ -4,11 +4,13 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Teacher(models.Model):
+    teacher_username = models.CharField(max_length = 15)
     first_name = models.CharField(max_length = 15)
     last_name = models.CharField(max_length = 20)
     password = models.CharField(max_length = 20)
 
 class Student(models.Model):
+    student_username = models.CharField(max_length = 15)
     first_name = models.CharField(max_length = 15)
     last_name = models.CharField(max_length = 20)
     password = models.CharField(max_length = 20)
