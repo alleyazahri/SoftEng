@@ -1,0 +1,12 @@
+{% load staticfiles %}
+
+<html>
+	<head>
+		<title>Student Interface</title>
+	</head>
+	<body>
+		<h1>Welcome, {{ name }}</h1>
+		<a href = "{% url 'student.views.game1' %}">First Game</a>
+	</body>
+
+</html>
