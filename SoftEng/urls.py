@@ -16,4 +16,5 @@ urlpatterns += patterns (
     url(r'^login/$', 'login', {'template_name': 'login.html'}, name = 'main_login'),
                        
     url(r'^logout/$', 'logout', {'next_page': 'main_home'}, name = 'main_logout'),
+
 )

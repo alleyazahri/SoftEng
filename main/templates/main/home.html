@@ -1,1 +1,19 @@
-home.html
+{% extends "base.html" %}
+
+{% block page_title %}
+        <title>Homepage</title>
+{% endblock page_title %}
+{% block content %}
+        <div class = "container">
+            <div class="jumbotron">
+                {% if user.is_authenticated %}
+                    <p>Hi, {{user.username}}!</p>
+                {% else %}
+                    <p>Welcome to the game!</p>
+                    <p style = "margin-top: 1em"
+                        <a href="{% url 'main_login' %}">Please login</a>
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+{% endblock content %}
