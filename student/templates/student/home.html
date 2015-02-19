@@ -6,6 +6,9 @@
 	</head>
 	<body>
 		<h1>Welcome, {{ name }}</h1>
+		<p>
+		<img src = "{% static 'world.gif' %}">
+		<p>
 		<a href = "{% url 'student.views.game1' %}">First Game</a>
 		&nbsp;
 		<a href = "{% url 'student.views.game2' %}">Second Game</a>
