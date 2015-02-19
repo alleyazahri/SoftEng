@@ -16,7 +16,11 @@ urlpatterns = patterns('',
     url(r'^student/game4$','student.views.game4'),
     url(r'^student/game5$','student.views.game5'),
     url(r'^student/game6$','student.views.game6'),
-    url(r'^student/game7$','student.views.game7')
+    url(r'^student/game7$','student.views.game7'),
+                       
+    url(r'^teacher$','teacher.views.teacherhome'),
+    url(r'^teacher/students$','teacher.views.students'),
+    url(r'^teacher/studentinformation$','teacher.views.studentinformation'),
 )
 
 urlpatterns += patterns (
