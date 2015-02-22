@@ -5,6 +5,23 @@
 {% endblock page_title %}
 
 {% block content %}
+<div>
+    <table style="width:100%">
+        <tr>
+            <td>Username</td>
+            <td>First name</td>
+            <td>Last name</td>
+            <td>Current Level</td>
+        </tr>
+        {% for stud in studentsList %}
+            <tr>
+                <td><a href="{% url 'teacher.views.studentinformation' %}">{{ stud.user.username }}</a></td>
+                <td>{{ stud.user.first_name }}</td>
+                <td>{{ stud.user.last_name }}</td>
+                <td>{{ stud.current_level }}</td>
+            </tr>
 
-
+        {% endfor %}
+    </table>
+</div>
 {% endblock content %}
