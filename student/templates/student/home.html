@@ -1,10 +1,12 @@
+{% extends "base.html" %}
 {% load staticfiles %}
 
-<html>
-	<head>
+
+{% block page_title %}
 		<title>Student Interface</title>
-	</head>
-	<body>
+{% endblock page_title %}
+
+{% block content %}
 		<h1>Welcome, {{ name }}</h1>
 		<p>
 		<img src = "{% static 'world.gif' %}" alt="map" usemap="#gamemap">
@@ -32,6 +34,4 @@
 		<a href = "{% url 'student.views.game6' %}">Sixth Game</a>
 		&nbsp;
 		<a href = "{% url 'student.views.game7' %}">Seventh Game</a>
-	</body>
-
-</html>
+{% endblock content %}

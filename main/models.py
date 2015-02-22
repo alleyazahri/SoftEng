@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Teacher(models.Model):
     user = models.OneToOneField(User)
     def __str__(self):
-        return "{0}, {1}".format(self.user.lastname,self.user.firstname)
+        return "{0}".format(self.user.username)
 
 '''Student Model - holds additional information for a student user'''
 class Student(models.Model):

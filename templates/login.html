@@ -1,14 +1,21 @@
 <html>
+
     <head>
+
         <title>Please login</title>
+
     </head>
+
     <body>
+
         <form role="fowm" class = "form-horizontal" method="post">
+
                     {% csrf_token %}
                     {{ form }}
-                    <input type="submit" value="Submit">
-                        
-                        
+                           <input type="submit" value="Submit">
+
         </form>
+
     </body>
+
 </html>
