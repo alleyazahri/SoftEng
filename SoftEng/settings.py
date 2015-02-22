@@ -37,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'student'
+    'student',
+    'teacher'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -84,3 +85,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"),)
+
+LOGIN_URL = 'main_login'
+LOGOUT__URL = 'main_logout'
+LOGIN_REDIRECT_URL = 'main_home'

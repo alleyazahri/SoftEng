@@ -1,0 +1,24 @@
+<html>
+    <head>
+        {% block page_title %}
+        {% endblock page_title %}
+    </head>
+    <body>
+        <div class = "navbar navbar-default navbar-static-top">
+            <div class = "container">
+                <div class = "navbar-header">
+                    <a class = "navbar-brand" href = "#">Home</a>
+                </div>
+                <ul class = "nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'main_logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'main_login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        {% block content %}
+        {% endblock content %}
+    </body>
+</html>
