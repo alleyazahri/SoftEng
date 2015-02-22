@@ -1,11 +1,11 @@
-<html>
-	<head>
-		<title>Game 7</title>
-	</head>
-	<body>
-		<h1>Seventh Game</h1>
-		<a href = "{% url 'student.views.home' %}">Home</a>
-		&nbsp;
-	</body>
+{% extends "base.html" %}
+{% load staticfiles %}
 
-</html>
+
+{%block page_title%} Game 7 {%endblock page_title%}
+{%block header%} Seventh Game {%endblock header%}
+
+{%block content%}
+<a href = "{% url 'student.views.home' %}">Home</a>
+&nbsp;
+{%endblock content%}

@@ -1,21 +1,20 @@
-<html>
+{% extends "base.html" %}
 
-    <head>
+{%block page_title%}
+        Login
+{%endblock page_title%}
 
-        <title>Please login</title>
+{%block header%} Login {%endblock header%}
 
-    </head>
-
-    <body>
-
-        <form role="fowm" class = "form-horizontal" method="post">
-
+{%block content %}
+<div id = "login">
+<section class = "loginform cf">
+	<form role="form" class = "form" method="post" accept-charset="utf-8">
                     {% csrf_token %}
                     {{ form }}
-                           <input type="submit" value="Submit">
+               		<input type="submit" value="Login">                             
+	</form>  
+</section>
+</div>
 
-        </form>
-
-    </body>
-
-</html>
+{%endblock content%}
