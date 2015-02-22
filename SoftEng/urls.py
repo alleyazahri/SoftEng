@@ -7,8 +7,8 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'main.views.home', name = 'main_home')
-                                              
+    url(r'^$', 'main.views.home', name = 'main_home'),
+                       
     url(r'^student$', 'student.views.home'),
     url(r'^student/game1$', 'student.views.game1'),
     url(r'^student/game2$', 'student.views.game2'),
