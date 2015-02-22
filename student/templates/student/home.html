@@ -6,32 +6,19 @@
 		<title>Student Interface</title>
 {% endblock page_title %}
 
+{% block header %} Welcome, {{ name }} {% endblock header %}
 {% block content %}
-		<h1>Welcome, {{ name }}</h1>
-		<p>
-		<img src = "{% static 'world.gif' %}" alt="map" usemap="#gamemap">
+
+		<img src = "{% static 'world1.jpg' %}" alt="map" usemap="#gamemap">
 		<map name="gamemap">
-  			<area shape="circle" coords="180,100,40" alt="1game" href = "{% url 'student.views.game1' %}">
-			<area shape="circle" coords="250,220,40" alt="1game" href = "{% url 'student.views.game2' %}">
-			<area shape="circle" coords="400,185,60" alt="1game" href = "{% url 'student.views.game3' %}">
-			<area shape="circle" coords="415,65,40" alt="1game" href = "{% url 'student.views.game4' %}">
-			<area shape="circle" coords="520,85,65" alt="1game" href = "{% url 'student.views.game5' %}">
-			<area shape="circle" coords="615,250,40" alt="1game" href = "{% url 'student.views.game6' %}">
-			<area shape="rect" coords="150,330,600,370" alt="1game" href = "{% url 'student.views.game7' %}">
- 			
-		</map>
-		<p>
-		<a href = "{% url 'student.views.game1' %}">First Game</a>
-		&nbsp;
-		<a href = "{% url 'student.views.game2' %}">Second Game</a>
-		&nbsp;
-		<a href = "{% url 'student.views.game3' %}">Third Game</a>
-		&nbsp;
-		<a href = "{% url 'student.views.game4' %}">Fourth Game</a>
-		&nbsp;
-		<a href = "{% url 'student.views.game5' %}">Fifth Game</a>
-		&nbsp;
-		<a href = "{% url 'student.views.game6' %}">Sixth Game</a>
-		&nbsp;
-		<a href = "{% url 'student.views.game7' %}">Seventh Game</a>
+  			<area shape="circle" coords="180,95,42" alt="1game" href = "{% url 'student.views.game1' %}">
+			<!--<area shape="circle" coords="250,220,40" alt="1game" href = "{% url 'student.views.game2' %}">-->
+			<!--<area shape="circle" coords="400,185,60" alt="1game" href = "{% url 'student.views.game3' %}">-->
+			<!--<area shape="circle" coords="415,65,40" alt="1game" href = "{% url 'student.views.game4' %}">-->
+			<!--<area shape="circle" coords="520,85,65" alt="1game" href = "{% url 'student.views.game5' %}">-->
+			<!--<area shape="circle" coords="615,250,40" alt="1game" href = "{% url 'student.views.game6' %}">-->
+			<!--<area shape="rect" coords="150,330,600,370" alt="1game" href = "{% url 'student.views.game7' %}">-->
+
+        </map>
+
 {% endblock content %}
