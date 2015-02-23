@@ -1,7 +1,6 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="/static/loginStyles.css">
-		<!--<link href="/static/css/bootstrap.css" rel="stylesheet">-->
 		<title>{% block page_title%} Travel the World {% endblock page_title%}</title>
 	</head>
 	
@@ -10,33 +9,24 @@
     </header>
     
     <body>
-    <div id = "nav" >
-        <div class = "navbar navbar-default navbar-static-top">
+    	<div id = "nav" >
             <div class = "container">
-                <!--<div class = "navbar-header">-->
-                    <!--<a class = "navbar-brand" href = "#">Home</a>-->
-                <!--</div><-->
                 <ul id = "navbar" class = "nav navbar-nav navbar-right">
-                	<li><a href = "#">Home</a></li>
-                    {% if user.is_authenticated %}
-                    <li><a href="{% url 'main_logout' %}">Logout</a></li>
-                    <li><a href="{% url 'teacher.views.studentinformation'%}">Student Info</a></li>
-                    {% else %}
-                    <li><a href="{% url 'main_login' %}">Login</a></li>
-                    {% endif %}
-                    
+                	<li><a href = {%block homepage%} "#" {% endblock homepage %} >Home</a></li>
+                   	{% if user.is_authenticated %}
+                   	<li><a href="{% url 'main_logout' %}">Logout</a></li>
+                   	{%block userinformationurl%}<!-- url for user info goes here -->{%endblock userinformationurl%}
+                   	{% else %}
+                 	<li><a href="{% url 'main_login' %}">Login</a></li>
+                    {% endif %}   
                 </ul>
-            </div>
-        </div>
-	</div>
-    
-    <!--<hr /> -->   
-    
-    <div id ="content">
-        {% block content %}
-        {% endblock content %}
-    </div>
-        
-        
+           	</div>
+		</div>
+     
+    	<div id ="content">
+        	{% block content %}
+        	{% endblock content %}
+    	</div>
+     
     </body>
 </html>

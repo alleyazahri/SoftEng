@@ -7,9 +7,10 @@
 
 {%block content%}
 
-<a href = "{% url 'student.views.home' %}">Home</a>
+<a{%block homepage%} href = "{% url 'student.views.home' %}" {%endblock homepage%}>Home</a>
 <p>
 <img src="{% static 'Game1Dots.jpg' %}" alt="OrigDots" usemap="#dotmap">
+
 <map name="dotmap">
  	<area shape="circle" coords="18,12,10" alt="Nothing" href = "{% static 'Game1Dots.jpg' %}">
  	<area shape="circle" coords="370,83,10" alt="Line" href="{% static 'Game1DotsC.jpg' %}">

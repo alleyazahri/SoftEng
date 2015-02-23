@@ -2,13 +2,8 @@
 {% load staticfiles %}
 
 
-{% block page_title %}
-<title>Student Interface</title>
-{% endblock page_title %}
-
-{% block header %} Welcome, {{ name }} {% endblock header %}
+{%include 'student_interface.html' %}
 {% block content %}
-
 <img src = "{% static 'world5.jpg' %}" alt="map" usemap="#gamemap">
 <map name="gamemap">
     <area shape="circle" coords="180,95,42" alt="1game" href = "{% url 'student.views.game1' %}">

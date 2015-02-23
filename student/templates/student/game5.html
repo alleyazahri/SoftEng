@@ -6,6 +6,6 @@
 {%block header%} Fifth Game {%endblock header%}
 
 {%block content%}
-<a href = "{% url 'student.views.home' %}">Home</a>
+<a {%block homepage%} href = "{% url 'student.views.home' %}" {%endblock homepage%}>Home</a>
 &nbsp;
 {%endblock content%}

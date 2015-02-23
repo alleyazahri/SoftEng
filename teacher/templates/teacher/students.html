@@ -45,17 +45,8 @@
             <!--<a class = "navbar-brand" href = "#">Home</a>-->
             <!--</div><-->
             <ul id = "navbar" class = "nav navbar-nav navbar-right">
-                {% if user.is_authenticated %}
-                {% if user. %}
-                <li><a href = "#">Home</a></li>
-                {% else %}
-
-                {% endif %}
+                <li>    <a href = "{% url 'teacher.views.teacherhome' %}">Home</a></li>
                 <li><a href="{% url 'main_logout' %}">Logout</a></li>
-                <li><a href="{% url 'teacher.views.students'%}">Student Info</a></li>
-                {% else %}
-                <li><a href="{% url 'main_login' %}">Login</a></li>
-                {% endif %}
 
             </ul>
         </div>
@@ -80,14 +71,14 @@
                     <td>{{stud.user.last_name }}</td>
                     <td>{{stud.current_level }}</td>
                  </tr>
-        <!--
-                <div id="showhide"></div>
-                <div id="hide_show">
-                    <p>{{stud.user.username}}</p>
-                </div> -->
+                <!--<div id="showhide"></div>-->
+                <!--<div id="hide_show">-->
+                    <!--<p>{{stud.user.username}}</p>-->
+                <!--</div>-->
             {% endfor %}
         </table>
     </div>
+
 </div>
 </body>
 </html>
