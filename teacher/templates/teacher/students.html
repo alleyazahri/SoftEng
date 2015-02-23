@@ -1,10 +1,93 @@
-{% extends "base.html" %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/loginStyles.css">
+<title>Students</title>
+    <script>
 
-{% block page_title %}
-Students
-{% endblock page_title %}
+        var button_beg = '<button id="button" onclick="showhide()">', button_end = '</button>';
+        var show_button = 'Show', hide_button = 'Hide';
+        function showhide() {
+            var div = document.getElementById( "hide_show" );
+            var showhide = document.getElementById( "showhide" );
+            if ( div.style.display !== "none" ) {
+                div.style.display = "none";
+                button = show_button;
+                showhide.innerHTML = button_beg + button + button_end;
+            } else {
+                div.style.display = "block";
+                button = hide_button;
+                showhide.innerHTML = button_beg + button + button_end;
+        }
+        function setup_button( status ) {
+            if ( status == 'show' ) {
+                button = hide_button;
+            } else {
+                button = show_button;
+            }
+            var showhide = document.getElementById( "showhide" );
+            showhide.innerHTML = button_beg + button + button_end;
+        }
+        window.onload = function () {
+            setup_button( 'hide' );
+            showhide(); // if setup_button is set to 'show' comment this line
+        }
+    </script>
+</head>
 
-{% block content %}
+<header>
+    <h1>{% block header %}Students Information{% endblock header %}</h1>
+</header>
+<body>
+<div id = "nav" >
+    <div class = "navbar navbar-default navbar-static-top">
+        <div class = "container">
+            <!--<div class = "navbar-header">-->
+            <!--<a class = "navbar-brand" href = "#">Home</a>-->
+            <!--</div><-->
+            <ul id = "navbar" class = "nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                {% if user. %}
+                <li><a href = "#">Home</a></li>
+                {% else %}
+
+                {% endif %}
+                <li><a href="{% url 'main_logout' %}">Logout</a></li>
+                <li><a href="{% url 'teacher.views.students'%}">Student Info</a></li>
+                {% else %}
+                <li><a href="{% url 'main_login' %}">Login</a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id ="content">
 
 
-{% endblock content %}
+    <div>
+        <table  border="1" style="width:100%">
+            <tr>
+                <td>Username</td>
+                <td>First name</td>
+                <td>Last name</td>
+                <td>Current Level</td>
+            </tr>
+            {% for stud in studentsList %}
+                <tr>
+                    <td>{{stud.user.username}} </td>
+                    <td>{{stud.user.first_name }}</td>
+                    <td>{{stud.user.last_name }}</td>
+                    <td>{{stud.current_level }}</td>
+                 </tr>
+        <!--
+                <div id="showhide"></div>
+                <div id="hide_show">
+                    <p>{{stud.user.username}}</p>
+                </div> -->
+            {% endfor %}
+        </table>
+    </div>
+</div>
+</body>
+</html>

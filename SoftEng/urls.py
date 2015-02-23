@@ -22,6 +22,7 @@ urlpatterns = patterns('',
     url(r'^student/password$','student.views.changepword'),
 
     #Teacher Stuff
+    url(r'^teacher/profile$','teacher.views.teacheredit'),
     url(r'^teacher$','teacher.views.teacherhome'),
     url(r'^teacher/students$','teacher.views.students'),
     url(r'^teacher/studentinformation$','teacher.views.studentinformation'),

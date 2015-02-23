@@ -6,5 +6,13 @@ Student Information
 
 {% block content %}
 
+HELLO <br>
+THIS IS NOT WOOORKING
+
+{% for field in form %}
+<div class="fieldWrapper">
+    {{ field.student_username }}
+</div>
+{% endfor %}
 
 {% endblock content %}
