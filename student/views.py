@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from main.models import *
+from django.core.exceptions import ObjectDoesNotExist
+
 
 
 # Create your views here.
@@ -27,6 +29,52 @@ def home(request):
     else:
         return render(request,'student/homel7.html',{'name':request.user.username})
 
+@login_required
+def profile(request):
+    user = request.user.username
+    count = Student.objects.count()
+    for i in range(count):
+        temp = Student.objects.get(id=i+1)
+        if user == temp.user.username:
+            firname = temp.user.first_name
+            lasname = temp.user.last_name
+            level = temp.current_level
+            numid = i+1
+    if level > 1:
+        oneScore = Score.objects.get(student = numid, level = 1).score
+    else:
+        oneScore = " - "
+    if level > 2:
+        twoScore = Score.objects.get(student = numid, level = 2).score
+    else:
+        twoScore = " - "
+    if level > 3:
+        threeScore = Score.objects.get(student = numid, level = 3).score
+    else:
+        threeScore = " - "
+    if level > 4:
+        fourScore = Score.objects.get(student = numid, level = 4).score
+    else:
+        fourScore = " - "
+    if level > 5:
+        fiveScore = Score.objects.get(student = numid, level = 5).score
+    else:
+        fiveScore = " - "
+    if level > 6:
+        sixScore = Score.objects.get(student = numid, level = 6).score
+        try:
+            sevenScore = Score.objects.get(student = numid, level = 7).score
+        except ObjectDoesNotExist:
+            sevenScore = " - "
+            pass
+    else:
+        sixScore = " - "
+        sevenScore = " - "
+    return render(request,'student/studentPage.html',{'fname' : firname, 'lname' : lasname, 'username' : user, 'gameLevel' : level, 'firstScore' : oneScore, 'secondScore' : twoScore, 'thirdScore' : threeScore, 'fourthScore' : fourScore, 'fifthScore' : fiveScore, 'sixthScore' : sixScore, 'seventhScore' : sevenScore})
+
+@login_required
+def changepword(request):
+    return render(request, 'student/pword.html')
 
 @login_required
 def game1(request):
