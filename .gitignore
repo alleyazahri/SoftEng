@@ -1,3 +1,8 @@
+#Project Files to ignore
+*.pyc
+*.sqlite3
+workspace.xml
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
