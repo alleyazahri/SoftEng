@@ -3,10 +3,12 @@
 {% block page_title %}
 Teacher homepage
 {% endblock page_title %}
+
+{%block homepage%} {% url 'teacher.views.teacherhome' %} {% endblock homepage %}
+
 {% block userinformationurl %}
-<li>    <a href = "{% url 'teacher.views.students' %}">Students information</a></li>
-<li> <a href = "{% url 'teacher.views.teacheredit' %}">Teacher profile edit</a></li>
-{% endblock userinformationurl %}
+	{%include "teacher/teachernavbar.html"%}
+{%endblock userinformationurl%}
 
 
 {% block header %}

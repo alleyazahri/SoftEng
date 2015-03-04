@@ -4,11 +4,21 @@ body {
 	font-size: 12pt;
 }
 
-#nav {
-	margin-bottom: 50px;
+/*Navbar styling*/
+.nav {
+	/*position:absolute;*/
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+	z-index: 1;
+}
+.content {
+	position: absolute;
+	padding-top: 15px;
+	float: left;
 }
 
-#nav ul {
+
+.nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -16,11 +26,11 @@ body {
     float: left;
 }
 
-#nav li {
+.nav li {
     float: left;
 }
 
-#nav a:link, a:visited {
+.nav a:link, a:visited {
     display: block;
     width: 120px;
     font-weight: bold;
@@ -37,36 +47,31 @@ body {
 	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
 }
 
-#nav a:hover, a:active {
+.nav a:hover, a:active {
     background-color: #3b5998;
 }
 
-/* displays the entries side by side */	
-/*form ul {
-	padding: 0;
-	margin: 0;
-}*/
+.nav a.current{
+	background-color: #3b5998;
+}
+
 
 #login {
-	margin-bottom = 10px
+	display: inline;
+	margin-bottom: 10px;
 	
 }
 
 #id_username {
-	/*display: inline;*/
-	/*float: left;*/
+	margin-top: 0;
 	margin-left: 0;
 	float: none;
 }
 
 #id_password {
-	/*display: inline;*/
 	float: left;
 	
 }
-
-
-
 
 /*clearfix hack http://nicolasgallagher.com/micro-clearfix-hack/*/
 label {
@@ -119,9 +124,25 @@ label {
 	margin-top: 0;
 	border-radius: 3px;
 	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+	float: right;
 }
 
 header {
+	background-color: #fff;
 	text-align: center;
 	color: black;
+	margin-right: auto;
+	margin-left: auto;
+	width:800px;
+	
+}
+
+.container {
+	background-color: #fff;
+	position: relative;
+	width: 800px;
+	height: 400px;
+	border: 20px;
+	margin-right: auto;
+	margin-left: auto;
 }

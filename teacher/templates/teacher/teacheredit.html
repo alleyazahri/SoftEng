@@ -1,13 +1,19 @@
 {% extends "base.html" %}
 
 {% block page_title %}
-Teacher profile edit
+Edit Profile
 {% endblock page_title %}
+
+{%block header%}
+	Edit Profile
+{%endblock header%}
+
 {%block homepage%}"{% url 'teacher.views.teacherhome' %}" {% endblock homepage %}
+
 {% block userinformationurl %}
-<li>    <a href = "{% url 'teacher.views.students' %}">Students information</a></li>
-<li> <a href = "{% url 'teacher.views.teacheredit' %}">Teacher profile edit</a></li>
+	{%include "teacher/teachernavbar.html"%}
 {% endblock userinformationurl %}
+
 {% block content %}
 
 {% endblock content %}

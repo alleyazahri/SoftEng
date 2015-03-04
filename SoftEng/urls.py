@@ -22,9 +22,9 @@ urlpatterns = patterns('',
     url(r'^student/password$','student.views.changepword'),
 
     #Teacher Stuff
-    url(r'^teacher/profile$','teacher.views.teacheredit'),
-    url(r'^teacher$','teacher.views.teacherhome'),
-    url(r'^teacher/students$','teacher.views.students'),
+    url(r'^teacher/profile$','teacher.views.teacheredit', name = 'teacher_profile'),
+    url(r'^teacher$','teacher.views.teacherhome', name = 'teacher_home'),
+    url(r'^teacher/students$','teacher.views.students', name = 'teacher_students'),
     url(r'^teacher/studentinformation$','teacher.views.studentinformation'),
 )
 
