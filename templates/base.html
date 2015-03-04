@@ -8,25 +8,38 @@
         <h1>{% block header %}Amazing Race{% endblock header %}</h1>
     </header>
     
+   
     <body>
-    	<div id = "nav" >
-            <div class = "container">
-                <ul id = "navbar" class = "nav navbar-nav navbar-right">
-                	<li><a href = {%block homepage%} "#" {% endblock homepage %} >Home</a></li>
-                   	{% if user.is_authenticated %}
-                   	<li><a href="{% url 'main_logout' %}">Logout</a></li>
-                   	{%block userinformationurl%}<!-- url for user info goes here -->{%endblock userinformationurl%}
-                   	{% else %}
-                 	<li><a href="{% url 'main_login' %}">Login</a></li>
-                    {% endif %}   
-                </ul>
-           	</div>
+    <div class="container">
+		<div class = "nav" >	
+			<div class = "navagation">
+				<ul id = "navbar" class = "nav navbar-nav navbar-right">
+					<li><a href = {%block homepage%} "#" {% endblock homepage %} >Home</a></li>
+					{% if user.is_authenticated %}
+            		{%block userinformationurl%}<!-- url for user info goes here -->{%endblock userinformationurl%}
+            		<li><a href="{% url 'main_logout' %}">Logout</a></li>
+            		{% else %}
+            		<li><a href="{% url 'main_login' %}">Login</a></li>
+            		{% endif %}   
+				</ul>
+			</div>
 		</div>
      
-    	<div id ="content">
+    	<div class ="content">
         	{% block content %}
         	{% endblock content %}
     	</div>
-     
+    </div>
     </body>
+    
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script>
+		$(function(){
+  			$('a').each(function() {
+    			if ($(this).prop('href') == window.location.href) {
+      				$(this).addClass('current');
+    			}
+  			});
+		});
+	</script>
 </html>
