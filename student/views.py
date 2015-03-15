@@ -14,20 +14,27 @@ def home(request):
         thing = Student.objects.get(id=i+1)
         if user == thing.user.username:
             gameLevel = thing.current_level
-    if gameLevel == 1:
-        return render(request,'student/home.html',{'name':request.user.username})
-    elif gameLevel == 2:
-        return render(request,'student/homeL2.html',{'name':request.user.username})
-    elif gameLevel == 3:
-        return render(request,'student/homeL3.html',{'name':request.user.username})
-    elif gameLevel == 4:
-        return render(request,'student/homeL4.html',{'name':request.user.username})
-    elif gameLevel == 5:
-        return render(request,'student/homeL5.html',{'name':request.user.username})
-    elif gameLevel == 6:
-        return render(request,'student/homeL6.html',{'name':request.user.username})
-    else:
-        return render(request,'student/homel7.html',{'name':request.user.username})
+            numid = i+1
+            if gameLevel > 6:
+                try:
+                    Score.objects.get(student = numid, level = 7).score
+                except ObjectDoesNotExist:
+                    gameLevel = 6.5
+                    pass
+    # if gameLevel == 1:
+    return render(request,'student/home.html',{'name':request.user.username,'level':gameLevel})
+    # elif gameLevel == 2:
+    #     return render(request,'student/homeL2.html',{'name':request.user.username})
+    # elif gameLevel == 3:
+    #     return render(request,'student/homeL3.html',{'name':request.user.username})
+    # elif gameLevel == 4:
+    #     return render(request,'student/homeL4.html',{'name':request.user.username})
+    # elif gameLevel == 5:
+    #     return render(request,'student/homeL5.html',{'name':request.user.username})
+    # elif gameLevel == 6:
+    #     return render(request,'student/homeL6.html',{'name':request.user.username})
+    # else:
+    #     return render(request,'student/homel7.html',{'name':request.user.username})
 
 @login_required
 def profile(request):
