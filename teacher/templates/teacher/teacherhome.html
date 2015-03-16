@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+<<<<<<< HEAD
 {% block page_title %}
 Teacher homepage
 {% endblock page_title %}
@@ -9,8 +10,30 @@ Teacher homepage
 {% block userinformationurl %}
 	{%include "teacher/teachernavbar.html"%}
 {%endblock userinformationurl%}
+=======
+{% block page_title %}Teacher homepage{% endblock page_title %}
+
+{% block header %}Teacher home{% endblock header %}
+
+{%block homepage%} "#" {% endblock homepage %}
+
+{% block userinformationurl %}
+    <li> <a href = "{% url 'teacher.views.teacheredit' %}">Teacher profile edit</a></li>
+    <li> <a href = "{% url 'teacher.views.students' %}">Students information</a></li>
+    <li> <a href = "{% url 'teacher.views.problemsList' %}">Problems List</a></li>
+{% endblock userinformationurl %}
+>>>>>>> Dana's-branch
 
 
-{% block header %}
+
+
+{% block content %}
+<br/>
     Welcome, {{ firstName }}!
-{% endblock header %}
+
+{% if form %}
+    <br/>
+    Information saved
+
+{% endif %}
+{% endblock content %}

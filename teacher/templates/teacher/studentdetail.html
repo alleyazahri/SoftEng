@@ -1,18 +1,44 @@
 {% extends "base.html" %}
 
-{% block page_title %}
-Student Information
-{% endblock page_title %}
+{% block page_title %}Srudent Information{% endblock page_title %}
+
+{% block header %}Student Information{% endblock header %}
+
+{%block homepage%} "{% url 'teacher.views.teacherhome' %}" {% endblock homepage %}
+
+{% block userinformationurl %}
+    <li> <a href = "{% url 'teacher.views.students' %}">Students information</a></li>
+    <li> <a href = "{% url 'teacher.views.problemsList' %}">Problems List</a></li>
+{% endblock userinformationurl %}
+
 
 {% block content %}
-
-HELLO <br>
-THIS IS NOT WOOORKING
-
-{% for field in form %}
-<div class="fieldWrapper">
-    {{ field.student_username }}
-</div>
-{% endfor %}
+    <br/>
+    Username: {{ stud.username }}<br/>
+    Name: {{stud.first_name }} {{stud.last_name }}<br/>
+    Email: {{stud.email }}<br/>
+    Level information:<br/>
+    <div>
+        <table  border="1" style="width:50%">
+            <tr>
+                <td>Level</td>
+                <td>Score</td>
+            </tr>
+            {% for lev in levelsList %}
+            <!--{% if lev %}-->
+                <tr>
+                    <td>{{ lev.level }}</td>
+                    <td>
+                        {% if lev.score %}
+                            {{ lev.score }}
+                        {% else %}
+                            <!--{{ lev.score }}-->
+                        {% endif %}
+                    </td>
+                </tr>
+            <!--{% endif %}-->
+            {% endfor %}
+        </table>
+    </div>
 
 {% endblock content %}

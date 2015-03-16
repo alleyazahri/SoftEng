@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block page_title %}Problems List{% endblock page_title %}
+{% block header %}Problems List{% endblock header %}
+{%block homepage%}"{% url 'teacher.views.teacherhome' %}"{% endblock homepage %}
+{% block userinformationurl %}
+    <li><a href = "{% url 'teacher.views.students' %}">Students information</a></li>
+{% endblock userinformationurl %}
+
+
+{% block content %}
+<br/>
+<a href = "{% url 'teacher.views.new_problem' %}">New Problem</a>
+<br/>
+    <div>
+        {% if problemslist %}
+            <table  border="1" style="width:100%">
+                <tr>
+                    <td>Problem</td>
+                    <td>Answer</td>
+                    <td>Type</td>
+                    <td>Level</td>
+                    <td>Options</td>
+                </tr>
+                {% for prob in problemslist %}
+                <tr>
+                    <td>{{prob.problem}}</td>
+                    <td>{{prob.answer}}</td>
+                    <td>{{prob.type}}</td>
+                    <td>{{prob.level}}</td>
+                    <td>
+                        <a class = "list-group-item" href = "{% url 'teacher.views.delete_problem' pk=prob.id %}">Delete</a>
+                        <a class = "list-group-item" href = "{% url 'teacher.views.edit_problem' pk=prob.id %}">Edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+    </div>
+{% endblock content %}

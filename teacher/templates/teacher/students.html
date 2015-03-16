@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+<<<<<<< HEAD
 
 {%block page_title%}
 	Students
@@ -7,11 +8,24 @@
 {% block header %}Student Information{% endblock header %}
 
 {%block homepage%} {% url 'teacher.views.teacherhome' %} {% endblock homepage %}
+=======
+
+{% block page_title %}Students Information{% endblock page_title %}
+
+{% block header %}Students Information{% endblock header %}
+
+{%block homepage%} "{% url 'teacher.views.teacherhome' %}" {% endblock homepage %}
+
+{% block userinformationurl %}
+<li> <a href = "{% url 'teacher.views.problemsList' %}">Problems List</a></li>
+{% endblock userinformationurl %}
+>>>>>>> Dana's-branch
 
 {% block userinformationurl %}
 	{%include "teacher/teachernavbar.html"%}
 {%endblock userinformationurl%}
 
+<<<<<<< HEAD
 {%block content%}
     <div>
         <table  border="1" style="width:100%">
@@ -67,3 +81,32 @@
             showhide(); // if setup_button is set to 'show' comment this line
         }
    	</script>
+=======
+{% block content %}
+            <div>
+                {% if studentsList %}
+                    <table  border="1" style="width:100%">
+                        <tr>
+                            <td>Username</td>
+                            <td>First name</td>
+                            <td>Last name</td>
+                            <td>Current Level</td>
+                            <td></td>
+                        </tr>
+                        {% for stud in studentsList %}
+                            <tr>
+                                <td>{{stud.user.username}}</td>
+                                <td>{{stud.user.first_name }}</td>
+                                <td>{{stud.user.last_name }}</td>
+                                <td>{{stud.current_level }}</td>
+                                <td>
+                                    <a class = "list-group-item" href = "{% url 'teacher.views.studentinformation' pk=stud.user.id %}">Info</a>
+                                    <a class = "list-group-item" href = "{% url 'teacher.views.edit_student' pk=stud.user.id %}">Edit</a>
+                                </td>
+                             </tr>
+                        {% endfor %}
+                    </table>
+                {% endif %}
+            </div>
+{% endblock content %}
+>>>>>>> Dana's-branch

@@ -22,13 +22,25 @@ urlpatterns = patterns('',
     url(r'^student/password$','student.views.changepword'),
 
     #Teacher Stuff
+<<<<<<< HEAD
     url(r'^teacher/profile$','teacher.views.teacheredit', name = 'teacher_profile'),
     url(r'^teacher$','teacher.views.teacherhome', name = 'teacher_home'),
     url(r'^teacher/students$','teacher.views.students', name = 'teacher_students'),
     url(r'^teacher/studentinformation$','teacher.views.studentinformation'),
+=======
+    url(r'^teacher/profile$','teacher.views.teacheredit'),
+    url(r'^teacher$','teacher.views.teacherhome'),
+    url(r'^teacher/students$','teacher.views.students'),
+    url(r'^teacher/editstudent/(?P<pk>\d+)/$','teacher.views.edit_student'),
+    url(r'^teacher/studentinformation/(?P<pk>\d+)/$','teacher.views.studentinformation'),
+    url(r'^teacher/problems','teacher.views.problemsList'),
+    url(r'^teacher/newproblem','teacher.views.new_problem'),
+    url(r'^teacher/deleteproblem/(?P<pk>\d+)/$','teacher.views.delete_problem'),
+    url(r'^teacher/editproblem/(?P<pk>\d+)/$','teacher.views.edit_problem')
+>>>>>>> Dana's-branch
 )
 
-'''Login Stuff'''
+# '''Login Stuff'''
 urlpatterns += patterns (
     'django.contrib.auth.views', #package that invokes all files
                        
