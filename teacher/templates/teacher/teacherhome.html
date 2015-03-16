@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-<<<<<<< HEAD
+
 {% block page_title %}
 Teacher homepage
 {% endblock page_title %}
@@ -10,8 +10,7 @@ Teacher homepage
 {% block userinformationurl %}
 	{%include "teacher/teachernavbar.html"%}
 {%endblock userinformationurl%}
-=======
-{% block page_title %}Teacher homepage{% endblock page_title %}
+
 
 {% block header %}Teacher home{% endblock header %}
 
@@ -22,7 +21,7 @@ Teacher homepage
     <li> <a href = "{% url 'teacher.views.students' %}">Students information</a></li>
     <li> <a href = "{% url 'teacher.views.problemsList' %}">Problems List</a></li>
 {% endblock userinformationurl %}
->>>>>>> Dana's-branch
+
 
 
 
