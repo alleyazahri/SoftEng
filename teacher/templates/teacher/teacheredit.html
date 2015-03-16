@@ -1,13 +1,29 @@
 {% extends "base.html" %}
 
-{% block page_title %}
-Teacher profile edit
-{% endblock page_title %}
-{%block homepage%}"{% url 'teacher.views.teacherhome' %}" {% endblock homepage %}
-{% block userinformationurl %}
-<li>    <a href = "{% url 'teacher.views.students' %}">Students information</a></li>
-<li> <a href = "{% url 'teacher.views.teacheredit' %}">Teacher profile edit</a></li>
-{% endblock userinformationurl %}
-{% block content %}
+{% block page_title %}Teacher profile edit{% endblock page_title %}
 
+{% block header %}Teacher profile edit{% endblock header %}
+
+{%block homepage%} "{% url 'teacher.views.teacherhome' %}" {% endblock homepage %}
+
+{% block userinformationurl %}
+    <li><a href = "{% url 'teacher.views.students' %}">Students information</a></li>
+    <li><a href = "{% url 'teacher.views.problemsList' %}">Problems List</a></li>
+{% endblock userinformationurl %}
+
+{% block content %}
+<br/>
+<div>
+    Username: {{ teach.username }}<br/>
+    Name: {{teach.first_name }} {{teach.last_name }}<br/><br/><br/>
+    <!--Current level: {{stud.current_level }}<br/><br/>-->
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form}}
+            <br/>
+            <button type="submit" name = "edit" value="ok">Edit</button>
+            <button type="submit" name = "back" value="no">Back</button>
+        </form>
+        </di
 {% endblock content %}
