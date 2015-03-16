@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from main.models import *
 from django.core.exceptions import ObjectDoesNotExist
+import random
+from django.db.models import Max
 
 
 
@@ -21,20 +23,8 @@ def home(request):
                 except ObjectDoesNotExist:
                     gameLevel = 6.5
                     pass
-    # if gameLevel == 1:
     return render(request,'student/home.html',{'name':request.user.username,'level':gameLevel})
-    # elif gameLevel == 2:
-    #     return render(request,'student/homeL2.html',{'name':request.user.username})
-    # elif gameLevel == 3:
-    #     return render(request,'student/homeL3.html',{'name':request.user.username})
-    # elif gameLevel == 4:
-    #     return render(request,'student/homeL4.html',{'name':request.user.username})
-    # elif gameLevel == 5:
-    #     return render(request,'student/homeL5.html',{'name':request.user.username})
-    # elif gameLevel == 6:
-    #     return render(request,'student/homeL6.html',{'name':request.user.username})
-    # else:
-    #     return render(request,'student/homel7.html',{'name':request.user.username})
+
 
 @login_required
 def profile(request):
@@ -85,7 +75,22 @@ def changepword(request):
 
 @login_required
 def game1(request):
-    return render(request,'student/game1.html')
+    total = Problem.objects.aggregate(Max('pk'))
+    total = total.get('pk__max')
+    problems = {}
+    count = 0
+
+    while count<2:
+        rand = random.randint(1,total)
+        try:
+            rand = Problem.objects.get(pk=rand)
+        except ObjectDoesNotExist:
+            pass
+        if type(rand) is not int and rand.level == 1:
+            if not problems.has_key(rand.answer):
+                problems[rand.answer] = rand.problem
+                count = count + 1
+    return render(request,'student/game1.html',{'val' : rand.problem, 'tot' : problems})
 
 @login_required    
 def game2(request):

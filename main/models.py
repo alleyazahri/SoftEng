@@ -30,4 +30,4 @@ class Problem(models.Model):
     type = models.CharField(max_length = 10)
     level = models.IntegerField()
     def __str__(self):
-        return "{0}".format(self.problem)
+        return "Lvl: {0} Prob: {1} = {2}".format(self.level,self.problem,self.answer)
