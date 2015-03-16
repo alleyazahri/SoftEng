@@ -20,15 +20,15 @@ def teacheredit(request):
             form = TeacherForm(data = request.POST)
             if form.is_valid():
                 # stud.delete()
-                us.password = request.POST.get('password')
-                if not request.POST.get('first_name'):
+                us.set_password(request.POST.get('password'))
+                if request.POST.get('first_name'):
                     us.first_name = request.POST.get('first_name')
-                if not request.POST.get('last_name'):
+                if request.POST.get('last_name'):
                     us.last_name = request.POST.get('last_name')
-                if not request.POST.get('email'):
+                if request.POST.get('email'):
                     us.email = request.POST.get('email')
                 us.save()
-                return render(request, "teacher/teacherhome.html", {'form':form})
+                return render(request, "teacher/teacherhome.html", {'form':form, 'firstName': request.user.first_name})
         else:
             return render(request, "teacher/students.html")
     else:
@@ -61,12 +61,12 @@ def edit_student(request, pk):
             form = UserForm(data = request.POST)
             if form.is_valid():
                 # stud.delete()
-                us.password = request.POST.get('password')
-                if not us.first_name:
+                us.set_password(request.POST.get('password'))
+                if request.POST.get('first_name'):
                     us.first_name = request.POST.get('first_name')
-                if not us.last_name:
+                if request.POST.get('last_name'):
                     us.last_name = request.POST.get('last_name')
-                if not us.email:
+                if request.POST.get('email'):
                     us.email = request.POST.get('email')
                 us.save()
                 return render(request, "teacher/students.html", {'studentsList': students_table })

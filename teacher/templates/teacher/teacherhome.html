@@ -7,8 +7,8 @@
 {%block homepage%} "#" {% endblock homepage %}
 
 {% block userinformationurl %}
-    <li> <a href = "{% url 'teacher.views.students' %}">Students information</a></li>
     <li> <a href = "{% url 'teacher.views.teacheredit' %}">Teacher profile edit</a></li>
+    <li> <a href = "{% url 'teacher.views.students' %}">Students information</a></li>
     <li> <a href = "{% url 'teacher.views.problemsList' %}">Problems List</a></li>
 {% endblock userinformationurl %}
 

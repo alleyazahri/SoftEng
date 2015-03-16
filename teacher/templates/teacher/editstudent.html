@@ -12,14 +12,14 @@
 {% block content %}
 <br/>
 <div>
-    Username: {{ username }}<br/>
-    Name: {{first_name }} {{last_name }}<br/><br/><br/>
+    Username: {{ stud.username }}<br/>
+    Name: {{stud.first_name }} {{stud.last_name }}<br/><br/><br/>
     <!--Current level: {{stud.current_level }}<br/><br/>-->
     <div>
         <form action="" method="post">
             {% csrf_token %}
             {{form}}
-            <br/>
+            <br/><br/>
             <button type="submit" name = "edit" value="ok">Edit</button>
             <button type="submit" name = "back" value="no">Back</button>
         </form>
