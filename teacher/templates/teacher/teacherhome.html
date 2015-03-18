@@ -7,23 +7,13 @@ Teacher homepage
 
 {%block homepage%} {% url 'teacher.views.teacherhome' %} {% endblock homepage %}
 
-{% block userinformationurl %}
-	{%include "teacher/teachernavbar.html"%}
-{%endblock userinformationurl%}
-
-
 {% block header %}Teacher home{% endblock header %}
-
-{%block homepage%} "#" {% endblock homepage %}
 
 {% block userinformationurl %}
     <li> <a href = "{% url 'teacher.views.teacheredit' %}">Teacher profile edit</a></li>
     <li> <a href = "{% url 'teacher.views.students' %}">Students information</a></li>
     <li> <a href = "{% url 'teacher.views.problemsList' %}">Problems List</a></li>
 {% endblock userinformationurl %}
-
-
-
 
 
 {% block content %}

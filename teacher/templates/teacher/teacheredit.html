@@ -1,26 +1,17 @@
 {% extends "base.html" %}
 
 {% block page_title %}
-Edit Profile
+	Edit Profile
 {% endblock page_title %}
 
 {%block header%}
 	Edit Profile
 {%endblock header%}
 
-{%block homepage%}"{% url 'teacher.views.teacherhome' %}" {% endblock homepage %}
+{%block homepage%}
+	{% url 'teacher.views.teacherhome' %} 
+{% endblock homepage %}
 
-{% block userinformationurl %}
-	{%include "teacher/teachernavbar.html"%}
-{% endblock userinformationurl %}
-
-{% block content %}
-
-{% block page_title %}Teacher profile edit{% endblock page_title %}
-
-{% block header %}Teacher profile edit{% endblock header %}
-
-{%block homepage%} "{% url 'teacher.views.teacherhome' %}" {% endblock homepage %}
 
 {% block userinformationurl %}
     <li><a href = "{% url 'teacher.views.students' %}">Students information</a></li>
