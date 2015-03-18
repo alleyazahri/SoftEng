@@ -1,27 +1,16 @@
 {% extends "base.html" %}
 
 {%block page_title%}
-	Students
+	Student Information
 {%endblock page_title%}
 
 {% block header %}Student Information{% endblock header %}
 
 {%block homepage%} {% url 'teacher.views.teacherhome' %} {% endblock homepage %}
 
-{% block page_title %}Students Information{% endblock page_title %}
-
-{% block header %}Students Information{% endblock header %}
-
-{%block homepage%} "{% url 'teacher.views.teacherhome' %}" {% endblock homepage %}
-
 {% block userinformationurl %}
 <li> <a href = "{% url 'teacher.views.problemsList' %}">Problems List</a></li>
 {% endblock userinformationurl %}
-
-{% block userinformationurl %}
-	{%include "teacher/teachernavbar.html"%}
-{%endblock userinformationurl%}
-
 
 {%block content%}
     <div>
@@ -46,7 +35,7 @@
             {% endfor %}
         </table>
     </div>
-{%endblock content%}
+
 
 
     <script>
@@ -78,7 +67,7 @@
             showhide(); // if setup_button is set to 'show' comment this line
         }
    	</script>
-{% block content %}
+
             <div>
                 {% if studentsList %}
                     <table  border="1" style="width:100%">
