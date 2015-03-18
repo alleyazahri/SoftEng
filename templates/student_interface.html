@@ -5,3 +5,7 @@ Student Interface
 {% endblock page_title %}
 
 {% block header %} Welcome, {{ name }} {% endblock header %}
+
+{% block homepage %}
+	{%url 'student.views.home'%}
+{% endblock homepage %}
