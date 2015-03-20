@@ -4,12 +4,45 @@
 
 {%block page_title%} Game 1 {%endblock page_title%}
 {%block header%} First Game {%endblock header%}
-{%block homepage%} {% url 'student.views.home' %} {%endblock homepage%}>Home
+{%block homepage%} {% url 'student.views.home' %} {%endblock homepage%}
+{%block extraHead %}
+#imgBlock {
+border: solid 1px black;
+display: inline-block;
+}
+#answerBlock{
+border: solid 1px black;
+border-radius: 5px;
+background-color: #CCFF99;
+display: inline-block;
+}
+{% endblock extraHead %}
 
 {%block content%}
+<div id="imgBlock">
+    <img src="{% static 'Game1Dots.jpg' %}" usemap='mapiethingie'>
+    <map name="mapiethingie" id = "mapiethingie">
+        <area title="Game 1" href="{% url 'student.views.game2' %}" shape="cir" coords="26,20,12" />
+        <area title="Game 1" href="{% url 'student.views.game3' %}" shape="cir" coords="365,78,12" />
+    </map>
+    <div style="position:absolute; top:26px; left:11px;">
+        <h4>{{ a1 }}</h4>
+    </div>
+    <div style="position:absolute; top:90px; left:355px;">
+        <h4>{{ a2 }}</h4>
+    </div>
+</div>
+<div id="answerBlock">
+    <h1>{{ p1 }}</h1>
+    <h3>Max ID: {{ p2 }} </h3>
+</div>
 
-<h1>{{ val }}</h1>
-<h3>Max ID: {{ tot }} </h3>
+
+<script type="text/javascript">
+    var score = 100
+    var probs = [{{ p1 }},{{ p2 }}]
+
+</script>
 {%endblock content%}
 
 
