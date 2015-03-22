@@ -30,6 +30,7 @@ def home(request):
 @login_required
 def profile(request):
     user = request.user.username
+    email = request.user.email
     count = Student.objects.count()
     for i in range(count):
         temp = Student.objects.get(id=i+1)
@@ -68,7 +69,11 @@ def profile(request):
     else:
         sixScore = " - "
         sevenScore = " - "
-    return render(request,'student/studentPage.html',{'fname' : firname, 'lname' : lasname, 'username' : user, 'gameLevel' : level, 'firstScore' : oneScore, 'secondScore' : twoScore, 'thirdScore' : threeScore, 'fourthScore' : fourScore, 'fifthScore' : fiveScore, 'sixthScore' : sixScore, 'seventhScore' : sevenScore})
+    return render(request,'student/studentPage.html',{'fname' : firname, 'lname' : lasname, 'username' : user, 'email' : email,
+                                                      'gameLevel' : level, 'firstScore' : oneScore, 'secondScore' : twoScore,
+                                                      'thirdScore' : threeScore, 'fourthScore' : fourScore,
+                                                      'fifthScore' : fiveScore, 'sixthScore' : sixScore,
+                                                      'seventhScore' : sevenScore})
 
 @login_required
 def changepword(request):
@@ -121,6 +126,20 @@ def game7(request):
 @login_required
 def studentedit(request):
     user = get_object_or_404(User, pk = request.user.pk)
+
+    count = Student.objects.count()
+    for i in range(count):
+        thing = Student.objects.get(id=i+1)
+        if request.user.username == thing.user.username:
+            gameLevel = thing.current_level
+            numid = i+1
+            if gameLevel > 6:
+                try:
+                    Score.objects.get(student = numid, level = 7).score
+                except ObjectDoesNotExist:
+                    gameLevel = 6.5
+                    pass
+
     if request.method == 'POST':
         if "edit" in request.POST:
             #EDITING HERE
@@ -135,9 +154,9 @@ def studentedit(request):
                 if request.POST.get('email'):
                     user.email = request.POST.get('email')
                 user.save()
-                return render(request, "student/studentPage.html", {'form':form, 'firstName': request.user.first_name})
+                return render(request, "student/studentPage.html", {'name':request.user.username,'level':gameLevel})
         else:
-            return render(request, "student/studentPage.html")
+            return render(request, "student/home.html", {'name':request.user.username,'level':gameLevel})
     else:
         form = StudentForm()
     return render(request, "student/studentEdit.html", {'student': user,  'form': form})
