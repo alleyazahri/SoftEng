@@ -13,13 +13,11 @@ def teacherhome(request):
 @login_required
 def teacheredit(request):
     us = get_object_or_404(User, pk = request.user.pk)
-    # students_table = Student.objects.all().filter(teacher__user = request.user)
     if request.method == 'POST':
         if "edit" in request.POST:
             #EDITING HERE
             form = TeacherForm(data = request.POST)
             if form.is_valid():
-                # stud.delete()
                 us.set_password(request.POST.get('password'))
                 if request.POST.get('first_name'):
                     us.first_name = request.POST.get('first_name')
@@ -30,7 +28,7 @@ def teacheredit(request):
                 us.save()
                 return render(request, "teacher/teacherhome.html", {'form':form, 'firstName': request.user.first_name})
         else:
-            return render(request, "teacher/students.html")
+            return render(request, "teacher/teacherhome.html")
     else:
         form = TeacherForm()
     return render(request, "teacher/teacheredit.html", {'teach': us,  'form': form})

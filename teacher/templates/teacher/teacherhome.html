@@ -1,18 +1,15 @@
 {% extends "base.html" %}
 
-
-{% block page_title %}
-Teacher homepage
-{% endblock page_title %}
+{% block page_title %}Teacher homepage{% endblock page_title %}
 
 {%block homepage%} {% url 'teacher.views.teacherhome' %} {% endblock homepage %}
 
 {% block header %}Teacher home{% endblock header %}
 
 {% block userinformationurl %}
-    <li> <a href = "{% url 'teacher.views.teacheredit' %}">Teacher profile edit</a></li>
+    <li> <a href = "{% url 'teacher.views.teacheredit' %}">Profile edit</a></li>
     <li> <a href = "{% url 'teacher.views.students' %}">Students information</a></li>
-    <li> <a href = "{% url 'teacher.views.problemsList' %}">Problems List</a></li>
+    <li> <a href = "{% url 'teacher.views.problemsList' %}">Problems list</a></li>
 {% endblock userinformationurl %}
 
 
@@ -23,6 +20,5 @@ Teacher homepage
 {% if form %}
     <br/>
     Information saved
-
 {% endif %}
 {% endblock content %}

@@ -3,6 +3,10 @@
 
 {%include 'student_interface.html' %}
 
+{% block userinformationurl %}
+<li> <a href = "{% url 'student.views.studentedit' %}">Profile edit</a></li>
+{% endblock userinformationurl %}
+
 {% block content %}
 
 		<div id="image">Image Here</div>

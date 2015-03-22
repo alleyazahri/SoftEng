@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from main.models import *
 from django.core.exceptions import ObjectDoesNotExist
 import random
 from django.db.models import Max
-
+from .forms import *
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -115,3 +116,28 @@ def game6(request):
 @login_required
 def game7(request):
     return render(request,'student/game7.html')
+
+
+@login_required
+def studentedit(request):
+    user = get_object_or_404(User, pk = request.user.pk)
+    if request.method == 'POST':
+        if "edit" in request.POST:
+            #EDITING HERE
+            form = StudentForm(data = request.POST)
+            if form.is_valid():
+                if request.POST.get('password'):
+                    user.set_password(request.POST.get('password'))
+                if request.POST.get('first_name'):
+                    user.first_name = request.POST.get('first_name')
+                if request.POST.get('last_name'):
+                    user.last_name = request.POST.get('last_name')
+                if request.POST.get('email'):
+                    user.email = request.POST.get('email')
+                user.save()
+                return render(request, "student/studentPage.html", {'form':form, 'firstName': request.user.first_name})
+        else:
+            return render(request, "student/studentPage.html")
+    else:
+        form = StudentForm()
+    return render(request, "student/studentEdit.html", {'student': user,  'form': form})
