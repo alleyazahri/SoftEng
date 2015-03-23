@@ -6,10 +6,10 @@ var canvasHeight = 420;
 
 $('#gameCanvas').attr("width",canvasWidth);
 $('#gameCanvas').attr("height",canvasHeight);
-var pos = 0;
+var pos = 0; //variable to indicate how far a person is in the connect the dots game
 
 var canvas =$('#gameCanvas')[0].getContext('2d');
-//Images
+//Images for Connect the Dots
 var image = new Image();
 image.src = "/static/WolfInit.png";
 var img1 = new Image();
@@ -53,1357 +53,1364 @@ img19.src = "/static/Wolf19.png";
 var img20 = new Image();
 img20.src = "/static/Wolf20.png";
 
-canvas.strokeRect(1,1,canvasWidth,canvasHeight-2);
-canvas.strokeRect(canvasWidth,1,canvasWidth-150,100);
-var questionBlock = document.getElementById("problems");
-window.addEventListener("mousedown", getPosition(event));
-$(image).load(function(){
+canvas.strokeRect(1,1,canvasWidth,canvasHeight-2); // border for canvas
+
+var tryAgainBlock = document.getElementById("tryAgain"); //variable used to write 'Try Again' into
+var problemBlock = document.getElementById("problems"); //variable used to write problems into
+
+window.addEventListener("mousedown", getPosition(event)); //allows the person to 'click' the canvas
+$(image).load(function(){ //makes sure the image is loaded before drawing it onto the canvas.
     canvas.drawImage(image,(canvasWidth/2)-(image.width/2),(canvasHeight/2)-(image.height/2)+10);
 });
+
+//var answers = [];
+//var questions = [];
+//alert(ans + "\n" + probs);
+
 function getPosition(event){
     if(event != undefined) {
-        var x = event.x-111;
-        var y = event.y-111;
+        var x = event.x+30; //please ignore the constants on x and y - I just had to use them since I had already created my buttons.
+        var y = event.y-177;
 
-        //alert(x + ", " + y);
+        //alert(x + ", " + y); //have been using this to make button areas and for troubleshooting
         if (pos == 0){
             if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
                 canvas.drawImage(img1, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 1){
             if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
                 canvas.drawImage(img2, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 2){
             if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
                 canvas.drawImage(img3, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 3){
             if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
                 canvas.drawImage(img4, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 4){
             if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
                 canvas.drawImage(img5, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 5){
             if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
                 canvas.drawImage(img6, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 6){
             if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
                 canvas.drawImage(img7, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 7){
             if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
                 canvas.drawImage(img8, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 8){
             if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
                 canvas.drawImage(img9, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 9){
             if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
                 canvas.drawImage(img10, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 10){
             if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
                 canvas.drawImage(img11, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 11){
             if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
                 canvas.drawImage(img12, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 12){
             if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
                 canvas.drawImage(img13, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 13){
             if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
                 canvas.drawImage(img14, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 14){
             if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
                 canvas.drawImage(img15, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 15){
             if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
                 canvas.drawImage(img16, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 16){
             if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
                 canvas.drawImage(img17, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 17){
             if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
                 canvas.drawImage(img18, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 18){
             if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
                 canvas.drawImage(img19, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
             else if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
         else if (pos == 19){
             if (x >= 369 && x <= 379 && y >= 123 && y <= 133){ //point 20
                 canvas.drawImage(img20, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
-                questionBlock.innerHTML = "<h1>Great Work!</h1>";
+                tryAgainBlock.innerHTML = "<h1>Great Work!</h1>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 404 && x <= 414 && y >= 119 && y <= 129){ //point 2
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 419 && x <= 429 && y >= 203 && y <= 214){ //point 3
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 445 && x <= 455 && y >= 304 && y <= 315){ //point 4
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 494 && x <= 504 && y >= 186 && y <= 196){ //point 5
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 434 && x <= 444 && y >= 339 && y <= 349){ //point 6
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 295 && y <= 305){ //point 7
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 414 && x <= 424 && y >= 304 && y <= 314){ //point 8
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 347 && x <= 357 && y >= 369 && y <= 379){ //point 9
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 369 && x <= 379 && y >= 252 && y <= 262){ //point 10
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 316 && x <= 326 && y >= 261 && y <= 271){ //point 11
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 289 && x <= 299 && y >= 360 && y <= 370){ //point 12
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 249 && x <= 259 && y >= 329 && y <= 339){ //point 13
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 267 && x <= 277 && y >= 280 && y <= 290){ //point 14
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 288 && x <= 298 && y >= 186 && y <= 196){ //point 15
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 273 && x <= 283 && y >= 108 && y <= 118){ //point 16
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 266 && x <= 276 && y >= 33 && y <= 43){ //point 17
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 301 && x <= 311 && y >= 67 && y <= 77){ //point 18
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else if (x >= 307 && x <= 317 && y >= 123 && y <= 133){ //point 19
-                questionBlock.innerHTML = "<h2>Try Again</h2>";
+                tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
             }
             else{
-                questionBlock.innerHTML = "";
+                tryAgainBlock.innerHTML = "";
             }
         }
     }

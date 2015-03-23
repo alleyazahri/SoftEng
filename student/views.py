@@ -92,7 +92,7 @@ def game1(request):
                 problems.append(rand.problem)
                 answers.append(rand.answer)
                 count = count + 1
-    return render(request,'student/game1.html',{'a1' : answers[0], 'a2' : answers[1], 'p1' : problems[0], 'p2' : problems[1]})
+    return render(request,'student/game1.html',{'answerSet' : answers, 'problemSet' : problems})
 
 @login_required    
 def game2(request):
