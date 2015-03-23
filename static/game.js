@@ -1401,7 +1401,6 @@ function getPosition(event){
                 canvas.drawImage(img20, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                 pos = pos+1;
                 tryAgainBlock.innerHTML = "<h1>Great Work!</h1>";
-                problemBlock.innerHTML = "<h1>" + problems[pos] + "</h1>";
             }
             else if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
                 tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
