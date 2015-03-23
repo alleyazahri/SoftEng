@@ -35,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game1.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="game1.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/student/templates/student/game1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.961538" vertical-offset="158" max-vertical-offset="612">
-              <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.3834197" vertical-offset="243" max-vertical-offset="646">
+              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
@@ -49,32 +49,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8" vertical-offset="918" max-vertical-offset="1768">
-              <caret line="74" column="33" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="1768">
+              <caret line="141" column="9" selection-start-line="141" selection-start-column="9" selection-end-line="141" selection-end-column="9" />
               <folding>
-                <element signature="e#2540#5885#0" expanded="false" />
-                <element signature="e#5912#9257#0" expanded="false" />
-                <element signature="e#9284#12629#0" expanded="false" />
-                <element signature="e#12656#16001#0" expanded="false" />
-                <element signature="e#16028#19373#0" expanded="false" />
-                <element signature="e#19400#22745#0" expanded="false" />
-                <element signature="e#22772#26117#0" expanded="false" />
-                <element signature="e#26144#29489#0" expanded="false" />
-                <element signature="e#29516#32861#0" expanded="false" />
-                <element signature="e#32888#36234#0" expanded="false" />
-                <element signature="e#36262#39608#0" expanded="false" />
-                <element signature="e#39636#42982#0" expanded="false" />
-                <element signature="e#43010#46356#0" expanded="false" />
-                <element signature="e#46384#49730#0" expanded="false" />
-                <element signature="e#49758#53104#0" expanded="false" />
-                <element signature="e#53132#56478#0" expanded="false" />
-                <element signature="e#56506#59852#0" expanded="false" />
-                <element signature="e#59880#63226#0" expanded="false" />
-                <element signature="e#63254#66600#0" expanded="false" />
-                <element signature="e#66628#69994#0" expanded="false" />
+                <element signature="e#2546#5891#0" expanded="false" />
+                <element signature="e#5918#9263#0" expanded="false" />
+                <element signature="e#9290#12635#0" expanded="false" />
+                <element signature="e#12662#16007#0" expanded="false" />
+                <element signature="e#16034#19379#0" expanded="false" />
+                <element signature="e#19406#22751#0" expanded="false" />
+                <element signature="e#22778#26123#0" expanded="false" />
+                <element signature="e#26150#29495#0" expanded="false" />
+                <element signature="e#29522#32867#0" expanded="false" />
+                <element signature="e#32894#36240#0" expanded="false" />
+                <element signature="e#36268#39614#0" expanded="false" />
+                <element signature="e#39642#42988#0" expanded="false" />
+                <element signature="e#43016#46362#0" expanded="false" />
+                <element signature="e#46390#49736#0" expanded="false" />
+                <element signature="e#49764#53110#0" expanded="false" />
+                <element signature="e#53138#56484#0" expanded="false" />
+                <element signature="e#56512#59858#0" expanded="false" />
+                <element signature="e#59886#63232#0" expanded="false" />
+                <element signature="e#63260#66606#0" expanded="false" />
+                <element signature="e#66634#70000#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -90,8 +90,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/student/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="2108">
-              <caret line="94" column="94" selection-start-line="94" selection-start-column="94" selection-end-line="94" selection-end-column="94" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1305" max-vertical-offset="2125">
+              <caret line="86" column="47" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="47" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -132,9 +132,9 @@
         <option value="$PROJECT_DIR$/teacher/templates/teacher/students.html" />
         <option value="$PROJECT_DIR$/student/templates/student/gameStyles.css" />
         <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/static/game.js" />
         <option value="$PROJECT_DIR$/student/views.py" />
         <option value="$PROJECT_DIR$/student/templates/student/game1.html" />
-        <option value="$PROJECT_DIR$/static/game.js" />
       </list>
     </option>
   </component>
@@ -694,15 +694,15 @@
       <workItem from="1426823230512" duration="2170000" />
       <workItem from="1426986789877" duration="3491000" />
       <workItem from="1427058993992" duration="17834000" />
-      <workItem from="1427126021977" duration="5993000" />
+      <workItem from="1427126021977" duration="6939000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94710000" />
+    <option name="totallyTimeSpent" value="95656000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1016" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="1016" y="-8" width="1382" height="784" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -1111,16 +1111,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/student/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="2108">
-          <caret line="94" column="94" selection-start-line="94" selection-start-column="94" selection-end-line="94" selection-end-column="94" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/student/templates/student/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.92727274" vertical-offset="0" max-vertical-offset="1632">
@@ -1129,43 +1119,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/student/templates/student/game1.html">
+    <entry file="file://$PROJECT_DIR$/student/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.961538" vertical-offset="158" max-vertical-offset="612">
-          <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1305" max-vertical-offset="2125">
+          <caret line="86" column="47" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="47" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8" vertical-offset="918" max-vertical-offset="1768">
-          <caret line="74" column="33" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="1768">
+          <caret line="141" column="9" selection-start-line="141" selection-start-column="9" selection-end-line="141" selection-end-column="9" />
           <folding>
-            <element signature="e#2540#5885#0" expanded="false" />
-            <element signature="e#5912#9257#0" expanded="false" />
-            <element signature="e#9284#12629#0" expanded="false" />
-            <element signature="e#12656#16001#0" expanded="false" />
-            <element signature="e#16028#19373#0" expanded="false" />
-            <element signature="e#19400#22745#0" expanded="false" />
-            <element signature="e#22772#26117#0" expanded="false" />
-            <element signature="e#26144#29489#0" expanded="false" />
-            <element signature="e#29516#32861#0" expanded="false" />
-            <element signature="e#32888#36234#0" expanded="false" />
-            <element signature="e#36262#39608#0" expanded="false" />
-            <element signature="e#39636#42982#0" expanded="false" />
-            <element signature="e#43010#46356#0" expanded="false" />
-            <element signature="e#46384#49730#0" expanded="false" />
-            <element signature="e#49758#53104#0" expanded="false" />
-            <element signature="e#53132#56478#0" expanded="false" />
-            <element signature="e#56506#59852#0" expanded="false" />
-            <element signature="e#59880#63226#0" expanded="false" />
-            <element signature="e#63254#66600#0" expanded="false" />
-            <element signature="e#66628#69994#0" expanded="false" />
+            <element signature="e#2546#5891#0" expanded="false" />
+            <element signature="e#5918#9263#0" expanded="false" />
+            <element signature="e#9290#12635#0" expanded="false" />
+            <element signature="e#12662#16007#0" expanded="false" />
+            <element signature="e#16034#19379#0" expanded="false" />
+            <element signature="e#19406#22751#0" expanded="false" />
+            <element signature="e#22778#26123#0" expanded="false" />
+            <element signature="e#26150#29495#0" expanded="false" />
+            <element signature="e#29522#32867#0" expanded="false" />
+            <element signature="e#32894#36240#0" expanded="false" />
+            <element signature="e#36268#39614#0" expanded="false" />
+            <element signature="e#39642#42988#0" expanded="false" />
+            <element signature="e#43016#46362#0" expanded="false" />
+            <element signature="e#46390#49736#0" expanded="false" />
+            <element signature="e#49764#53110#0" expanded="false" />
+            <element signature="e#53138#56484#0" expanded="false" />
+            <element signature="e#56512#59858#0" expanded="false" />
+            <element signature="e#59886#63232#0" expanded="false" />
+            <element signature="e#63260#66606#0" expanded="false" />
+            <element signature="e#66634#70000#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/templates/student/game1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3834197" vertical-offset="243" max-vertical-offset="646">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

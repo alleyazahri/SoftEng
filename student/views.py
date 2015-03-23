@@ -77,7 +77,7 @@ def changepword(request):
 def game1(request):
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
-    problems = []
+    problems = None;
     answers = []
     count = 0
 
@@ -89,7 +89,8 @@ def game1(request):
             pass
         if type(rand) is not int and rand.level == 1:
             if rand.answer not in answers:
-                problems.append(rand.problem)
+
+                problems = rand.problem
                 answers.append(rand.answer)
                 count = count + 1
     return render(request,'student/game1.html',{'answerSet' : answers, 'problemSet' : problems})

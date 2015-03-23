@@ -72,7 +72,7 @@ function getPosition(event){
         var x = event.x+30; //please ignore the constants on x and y - I just had to use them since I had already created my buttons.
         var y = event.y-177;
 
-        //alert(x + ", " + y); //have been using this to make button areas and for troubleshooting
+        //alert(ans + ", " + probs); //have been using this to make button areas and for troubleshooting
         if (pos == 0){
             if(x >= 407 && x <= 418 && y >= 31 && y <= 43) { //point 1
                 canvas.drawImage(img1, (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
