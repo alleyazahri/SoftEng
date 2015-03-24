@@ -28,7 +28,7 @@
       <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/student/templates/student/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="51" max-vertical-offset="1632">
+            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1632">
               <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
               <folding />
             </state>
@@ -49,37 +49,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2006" max-vertical-offset="3417">
-              <caret line="1402" column="65" selection-start-line="1402" selection-start-column="65" selection-end-line="1402" selection-end-column="65" />
-              <folding>
-                <element signature="e#4249#7669#0" expanded="false" />
-                <element signature="e#7696#11116#0" expanded="false" />
-                <element signature="e#11143#14563#0" expanded="false" />
-                <element signature="e#14590#18010#0" expanded="false" />
-                <element signature="e#18037#21457#0" expanded="false" />
-                <element signature="e#21484#24904#0" expanded="false" />
-                <element signature="e#24931#28351#0" expanded="false" />
-                <element signature="e#28378#31798#0" expanded="false" />
-                <element signature="e#31825#35245#0" expanded="false" />
-                <element signature="e#35272#38693#0" expanded="false" />
-                <element signature="e#38721#42142#0" expanded="false" />
-                <element signature="e#42170#45591#0" expanded="false" />
-                <element signature="e#45619#49040#0" expanded="false" />
-                <element signature="e#49068#52489#0" expanded="false" />
-                <element signature="e#52517#55938#0" expanded="false" />
-                <element signature="e#55966#59387#0" expanded="false" />
-                <element signature="e#59415#62836#0" expanded="false" />
-                <element signature="e#62864#66285#0" expanded="false" />
-                <element signature="e#66313#69734#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.36093417" vertical-offset="1785" max-vertical-offset="2414">
+              <caret line="115" column="28" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Wolf.png" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Wolf.png" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/Wolf.png">
           <provider selected="true" editor-type-id="images">
             <state />
@@ -159,6 +139,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -243,7 +224,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -682,16 +662,18 @@
       <workItem from="1426986789877" duration="3491000" />
       <workItem from="1427058993992" duration="17834000" />
       <workItem from="1427126021977" duration="13728000" />
-      <workItem from="1427146570653" duration="465000" />
+      <workItem from="1427146570653" duration="1057000" />
+      <workItem from="1427232363226" duration="3998000" />
+      <workItem from="1427238927982" duration="221000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102910000" />
+    <option name="totallyTimeSpent" value="107721000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -699,7 +681,7 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32861635" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19496855" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -768,7 +750,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1105,6 +1087,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/Wolf1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/Wolf.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/student/templates/student/game1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="731">
@@ -1117,42 +1109,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wolf1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2006" max-vertical-offset="3417">
-          <caret line="1402" column="65" selection-start-line="1402" selection-start-column="65" selection-end-line="1402" selection-end-column="65" />
-          <folding>
-            <element signature="e#4249#7669#0" expanded="false" />
-            <element signature="e#7696#11116#0" expanded="false" />
-            <element signature="e#11143#14563#0" expanded="false" />
-            <element signature="e#14590#18010#0" expanded="false" />
-            <element signature="e#18037#21457#0" expanded="false" />
-            <element signature="e#21484#24904#0" expanded="false" />
-            <element signature="e#24931#28351#0" expanded="false" />
-            <element signature="e#28378#31798#0" expanded="false" />
-            <element signature="e#31825#35245#0" expanded="false" />
-            <element signature="e#35272#38693#0" expanded="false" />
-            <element signature="e#38721#42142#0" expanded="false" />
-            <element signature="e#42170#45591#0" expanded="false" />
-            <element signature="e#45619#49040#0" expanded="false" />
-            <element signature="e#49068#52489#0" expanded="false" />
-            <element signature="e#52517#55938#0" expanded="false" />
-            <element signature="e#55966#59387#0" expanded="false" />
-            <element signature="e#59415#62836#0" expanded="false" />
-            <element signature="e#62864#66285#0" expanded="false" />
-            <element signature="e#66313#69734#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.36093417" vertical-offset="1785" max-vertical-offset="2414">
+          <caret line="115" column="28" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="28" />
+          <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wolf.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
   </component>
