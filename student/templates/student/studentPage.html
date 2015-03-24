@@ -6,7 +6,13 @@
 Student Profile
 {% endblock page_title %}
 
+{%block homepage%}{% url 'student.views.home' %}{% endblock homepage %}
+
+
 {% block header %} Welcome, {{ fname }} {{ lname }} {% endblock header %}
+
+
+
 {% block content %}
 <br>
 
@@ -43,8 +49,16 @@ Student Profile
         <td>{{ username }}</td>
     </tr>
     <tr>
-        <td>Password:</td>
-        <td><a href = "password">Change</a></td>
+        <td>First Name:</td>
+        <td>{{ fname }}</td>
+    </tr>
+    <tr>
+        <td>Last Name:</td>
+        <td>{{ lname }}</td>
+    </tr>
+    <tr>
+        <td>Email:</td>
+        <td>{{ email }}</td>
     </tr>
     <tr>
         <td>Current Level:</td>

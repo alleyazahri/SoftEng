@@ -20,7 +20,11 @@ urlpatterns = patterns('',
     url(r'^student/game7$','student.views.game7'),
     url(r'^student/profile$', 'student.views.profile'),
     url(r'^student/password$','student.views.changepword'),
+<<<<<<< HEAD
     url(r'^student/colorgame$', 'student.views.colorGame'),
+=======
+    url(r'^student/edit$','student.views.studentedit'),
+>>>>>>> origin/Dana's_branch
 
     #Teacher Stuff
     url(r'^teacher/profile$','teacher.views.teacheredit', name = 'teacher_profile'),
