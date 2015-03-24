@@ -2,6 +2,7 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="/static/loginStyles.css">
 		<title>{% block page_title%} Travel the World {% endblock page_title%}</title>
+		{% block head %}{% endblock head %}
 	</head>
 	
     <header>
@@ -42,4 +43,5 @@
   			});
 		});
 	</script>
+	{%block scripting%}{%endblock scripting%}
 </html>

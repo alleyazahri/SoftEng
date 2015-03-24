@@ -4,7 +4,7 @@
 {% block header %}Problems List{% endblock header %}
 {%block homepage%}"{% url 'teacher.views.teacherhome' %}"{% endblock homepage %}
 {% block userinformationurl %}
-    <li><a href = "{% url 'teacher.views.students' %}">Students information</a></li>
+   {% include "teachernavbar.html" %}
 {% endblock userinformationurl %}
 
 
