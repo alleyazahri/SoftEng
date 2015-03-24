@@ -10,9 +10,7 @@ Teacher homepage
 {% block header %}Teacher home{% endblock header %}
 
 {% block userinformationurl %}
-    <li> <a href = "{% url 'teacher.views.teacheredit' %}">Teacher profile edit</a></li>
-    <li> <a href = "{% url 'teacher.views.students' %}">Students information</a></li>
-    <li> <a href = "{% url 'teacher.views.problemsList' %}">Problems List</a></li>
+   {% include "teachernavbar.html" %}
 {% endblock userinformationurl %}
 
 

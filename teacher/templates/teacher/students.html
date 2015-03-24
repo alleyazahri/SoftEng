@@ -9,7 +9,7 @@
 {%block homepage%} {% url 'teacher.views.teacherhome' %} {% endblock homepage %}
 
 {% block userinformationurl %}
-<li> <a href = "{% url 'teacher.views.problemsList' %}">Problems List</a></li>
+	{% include "teachernavbar.html" %}
 {% endblock userinformationurl %}
 
 {%block content%}

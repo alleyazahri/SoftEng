@@ -115,3 +115,6 @@ def game6(request):
 @login_required
 def game7(request):
     return render(request,'student/game7.html')
+
+def colorGame(request):
+    return render(request,'student/coloringGame.html')

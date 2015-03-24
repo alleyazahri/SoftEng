@@ -146,3 +146,8 @@ header {
 	margin-right: auto;
 	margin-left: auto;
 }
+
+#canvasDiv {
+  border: solid 1px #333;
+  cursor: pointer;
+}
