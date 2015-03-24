@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import *
 from django.contrib.auth.models import User
-
+from django.shortcuts import redirect
+from django.contrib.auth import logout
 
 # Create your views here.
 
@@ -26,7 +27,9 @@ def teacheredit(request):
                 if request.POST.get('email'):
                     us.email = request.POST.get('email')
                 us.save()
-                return render(request, "teacher/teacherhome.html", {'form':form, 'firstName': request.user.first_name})
+                logout(request)
+                return redirect('teacher.views.teacherhome')
+                # return render(request, "teacher/teacherhome.html", {'form':form, 'firstName': request.user.first_name})
         else:
             return render(request, "teacher/teacherhome.html")
     else:
@@ -67,7 +70,9 @@ def edit_student(request, pk):
                 if request.POST.get('email'):
                     us.email = request.POST.get('email')
                 us.save()
-                return render(request, "teacher/students.html", {'studentsList': students_table })
+                logout(request)
+                return redirect('teacher.views.teacherhome')
+                # return render(request, "teacher/students.html", {'studentsList': students_table })
         else:
             return render(request, "teacher/students.html", {'studentsList': students_table })
     else:
@@ -123,7 +128,8 @@ def edit_problem(request, pk):
             if form.is_valid():
                 prob.delete()
                 form.save()
-                return render(request, "teacher/problemsList.html", {'problemslist': problems_table })
+                logout(request)
+                return redirect('teacher.views.teacherhome')
         else:
             return render(request, "teacher/problemsList.html", {'problemslist': problems_table })
     else:

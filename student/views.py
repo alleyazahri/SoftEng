@@ -6,35 +6,27 @@ import random
 from django.db.models import Max
 from .forms import *
 from django.contrib.auth.models import User
-
+from django.shortcuts import redirect
+from django.contrib.auth import logout
+from datetime import datetime
 
 # Create your views here.
 @login_required
 def home(request):
-    user = request.user.username
-    count = Student.objects.count()
-    for i in range(count):
-        thing = Student.objects.get(id=i+1)
-        if user == thing.user.username:
-            gameLevel = thing.current_level
-            numid = i+1
-            if gameLevel > 6:
-                try:
-                    Score.objects.get(student = numid, level = 7).score
-                except ObjectDoesNotExist:
-                    gameLevel = 6.5
-                    pass
+    stud = get_object_or_404(Student, id = request.user.pk)
+    gameLevel = stud.current_level
     return render(request,'student/home.html',{'name':request.user.username,'level':gameLevel})
 
 
 @login_required
 def profile(request):
-    user = request.user.username
+
+    username = request.user.username
     email = request.user.email
     count = Student.objects.count()
     for i in range(count):
         temp = Student.objects.get(id=i+1)
-        if user == temp.user.username:
+        if username == temp.user.username:
             firname = temp.user.first_name
             lasname = temp.user.last_name
             level = temp.current_level
@@ -69,7 +61,7 @@ def profile(request):
     else:
         sixScore = " - "
         sevenScore = " - "
-    return render(request,'student/studentPage.html',{'fname' : firname, 'lname' : lasname, 'username' : user, 'email' : email,
+    return render(request,'student/studentPage.html',{'fname' : firname, 'lname' : lasname, 'username' : username, 'email' : email,
                                                       'gameLevel' : level, 'firstScore' : oneScore, 'secondScore' : twoScore,
                                                       'thirdScore' : threeScore, 'fourthScore' : fourScore,
                                                       'fifthScore' : fiveScore, 'sixthScore' : sixScore,
@@ -126,20 +118,8 @@ def game7(request):
 @login_required
 def studentedit(request):
     user = get_object_or_404(User, pk = request.user.pk)
-
-    count = Student.objects.count()
-    for i in range(count):
-        thing = Student.objects.get(id=i+1)
-        if request.user.username == thing.user.username:
-            gameLevel = thing.current_level
-            numid = i+1
-            if gameLevel > 6:
-                try:
-                    Score.objects.get(student = numid, level = 7).score
-                except ObjectDoesNotExist:
-                    gameLevel = 6.5
-                    pass
-
+    stud = get_object_or_404(Student, id = request.user.pk)
+    gameLevel = stud.current_level
     if request.method == 'POST':
         if "edit" in request.POST:
             #EDITING HERE
@@ -154,7 +134,9 @@ def studentedit(request):
                 if request.POST.get('email'):
                     user.email = request.POST.get('email')
                 user.save()
-                return render(request, "student/studentPage.html", {'name':request.user.username,'level':gameLevel})
+                request.session['LAST_LOGIN_DATE'] = datetime.now()
+                logout(request)
+                return redirect('student.views.home')
         else:
             return render(request, "student/home.html", {'name':request.user.username,'level':gameLevel})
     else:
