@@ -114,10 +114,8 @@ def game6(request):
 def game7(request):
     return render(request,'student/game7.html')
 
-<<<<<<< HEAD
 def colorGame(request):
     return render(request,'student/coloringGame.html')
-=======
 
 @login_required
 def studentedit(request):
@@ -146,4 +144,3 @@ def studentedit(request):
     else:
         form = StudentForm()
     return render(request, "student/studentEdit.html", {'student': user,  'form': form})
->>>>>>> origin/Dana's_branch
