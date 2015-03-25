@@ -7,6 +7,13 @@ Student Profile
 {% endblock page_title %}
 
 {% block header %} Welcome, {{ fname }} {{ lname }} {% endblock header %}
+
+{%block homepage%} {% url 'student.views.home' %} {%endblock homepage%}
+
+{% block userinformationurl %}
+	{% include "studentnavbar.html" %}
+{% endblock userinformationurl %}
+
 {% block content %}
 <br>
 

@@ -3,6 +3,12 @@
 
 {%include 'student_interface.html' %}
 
+{% block userinformationurl %}
+	{% include "studentnavbar.html" %}
+{% endblock userinformationurl %}
+
+{%block homepage%} {% url 'student.views.home' %} {%endblock homepage%}
+
 {% block content %}
 
 		<div id="image">Image Here</div>

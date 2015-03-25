@@ -4,6 +4,11 @@
 
 {%block page_title%} Game 7 {%endblock page_title%}
 {%block header%} Seventh Game {%endblock header%}
+{%block homepage%} {% url 'student.views.home' %} {%endblock homepage%}
+
+{% block userinformationurl %}
+	{% include "studentnavbar.html" %}
+{% endblock userinformationurl %}
 
 {%block content%}
 
