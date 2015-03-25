@@ -95,7 +95,25 @@ def game1(request):
 
 @login_required    
 def game2(request):
-    return render(request,'student/game2.html')
+    total = Problem.objects.aggregate(Max('pk'))
+    total = total.get('pk__max')
+    problems = [];
+    answers = []
+    count = 0
+
+    while count<20:
+        rand = random.randint(1,total)
+        try:
+            rand = Problem.objects.get(pk=rand)
+        except ObjectDoesNotExist:
+            pass
+        if type(rand) is not int and rand.level == 2:
+            if rand.answer not in answers:
+
+                problems.append(rand.problem)
+                answers.append(rand.answer)
+                count = count + 1
+    return render(request,'student/game2.html',{'answerSet' : answers, 'problemSet' : problems})
 
 @login_required
 def game3(request):
