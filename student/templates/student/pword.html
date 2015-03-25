@@ -4,6 +4,11 @@
 
 {%block page_title%} Change Password {%endblock page_title%}
 {%block header%} Change Password {%endblock header%}
+{%block homepage%} {% url 'student.views.home' %} {%endblock homepage%}
+
+{% block userinformationurl %}
+	{% include "studentnavbar.html" %}
+{% endblock userinformationurl %}
 
 {%block content%}
 Old Password:
