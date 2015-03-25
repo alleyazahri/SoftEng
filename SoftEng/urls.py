@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     url(r'^student/profile$', 'student.views.profile'),
     url(r'^student/password$','student.views.changepword'),
     url(r'^student/colorgame$', 'student.views.colorGame'),
+    url(r'^student/edit$','student.views.studentedit'),
 
     #Teacher Stuff
     url(r'^teacher/profile$','teacher.views.teacheredit', name = 'teacher_profile'),

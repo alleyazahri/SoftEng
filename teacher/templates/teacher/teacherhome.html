@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 
-
-{% block page_title %}
-Teacher homepage
-{% endblock page_title %}
+{% block page_title %}Teacher homepage{% endblock page_title %}
 
 {%block homepage%} {% url 'teacher.views.teacherhome' %} {% endblock homepage %}
 
@@ -21,6 +18,5 @@ Teacher homepage
 {% if form %}
     <br/>
     Information saved
-
 {% endif %}
 {% endblock content %}
