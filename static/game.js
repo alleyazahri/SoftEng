@@ -108,7 +108,7 @@ function getPosition(event){
     if(event != undefined) {
         var x = event.x + 30; //please ignore the constants on x and y - I just had to use them since I had already created my buttons.
         var y = event.y - 177;
-        var isButton = false;
+        var isComplete = false;
         //alert(x + ", " + y); //have been using this to make button areas and for troubleshooting
         //alert(answers + "\n" + problems); //also used for problem solving - database stuff!
         for (var i = 0; i < xcoord.length; i++) {
@@ -116,8 +116,14 @@ function getPosition(event){
                 if (pos == i) {
                     canvas.drawImage(imgArray[i], (canvasWidth / 2) - (image.width / 2), (canvasHeight / 2) - (image.height / 2) + 10);
                     pos = pos + 1;
-                    tryAgainBlock.innerHTML = "";
-                    problemBlock.innerHTML = "<h1>" + problems[pos] + "</h1>";
+                    if (pos == xcoord.length){
+                        isComplete = true;
+                    }
+                    if (! isComplete){
+                        tryAgainBlock.innerHTML = "";
+                        problemBlock.innerHTML = "<h1>" + problems[pos] + "</h1>";
+                    }
+                    //alert(pos + ", " + isComplete);
                     break;
                 }
                 else {
@@ -125,11 +131,11 @@ function getPosition(event){
                     score -= 2.5;
                     break;
                 }
-                isButton = true;
             }
         }
-        if (i == xcoord.length && isButton){
-            problemBlock.intterHTML = "<h1> Great Work! </h1>";
+        //alert(isComplete);
+        if (isComplete){
+            problemBlock.innerHTML = "<h1> Great Work! </h1>";
         }
     }
 }
