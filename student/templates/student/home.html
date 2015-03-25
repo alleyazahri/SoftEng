@@ -4,18 +4,10 @@
 {%include 'student_interface.html' %}
 
 {% block userinformationurl %}
-<<<<<<< HEAD
     <li> <a href = "{% url 'student.views.studentedit' %}">Profile edit</a></li>
     <li> <a href = "{% url 'student.views.profile' %}">Profile</a></li>
 {% endblock userinformationurl %}
 
-=======
-	{% include "studentnavbar.html" %}
-{% endblock userinformationurl %}
-
-{%block homepage%} {% url 'student.views.home' %} {%endblock homepage%}
-
->>>>>>> origin/will-navbar-fix
 {% block content %}
 
 		<div id="image">Image Here</div>
