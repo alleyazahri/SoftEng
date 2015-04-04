@@ -7,8 +7,7 @@ from django.db.models import Max
 from .forms import *
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
-from django.contrib.auth import logout
-from datetime import datetime
+from django.contrib.auth import *
 
 # Create your views here.
 @login_required
@@ -171,9 +170,8 @@ def studentedit(request):
                 if request.POST.get('email'):
                     user.email = request.POST.get('email')
                 user.save()
-                request.session['LAST_LOGIN_DATE'] = datetime.now()
-                logout(request)
-                return redirect('student.views.home')
+                update_session_auth_hash(request, user)
+            return redirect('student.views.home')
         else:
             return render(request, "student/home.html", {'name':request.user.username,'level':gameLevel})
     else:
