@@ -13,16 +13,9 @@ from datetime import datetime
 # Create your views here.
 @login_required
 def home(request):
-    username = request.user.username
-    count = Student.objects.count()
-    for i in range(count):
-        try:
-            temp = Student.objects.get(id=i+1)
-            if username == temp.user.username:
-                lvl = temp.current_level
-        except ObjectDoesNotExist:
-            pass
-    return render(request,'student/home.html',{'name':request.user.username,'level': lvl,'fml' : 82})
+    stud = get_object_or_404(Student, id = request.user.pk)
+    gameLevel = stud.current_level
+    return render(request,'student/home.html',{'name':request.user.username,'level':gameLevel})
 
 
 @login_required
