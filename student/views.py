@@ -20,9 +20,16 @@ def home(request):
             temp = Student.objects.get(id=i+1)
             if username == temp.user.username:
                 lvl = temp.current_level
+                numid = i+1
         except ObjectDoesNotExist:
             pass
-    return render(request,'student/home.html',{'name':request.user.username,'level': lvl,'fml' : 82})
+    if lvl>6:
+        try:
+            seven = Score.objects.get(student = numid, level = 7).score
+        except ObjectDoesNotExist:
+            lvl = 6.5
+            pass
+    return render(request,'student/home.html',{'name':request.user.username,'level': lvl})
 
 
 @login_required
@@ -82,7 +89,7 @@ def changepword(request):
 def game1(request):
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
-    problems = [];
+    problems = []
     answers = []
     count = 0
 
@@ -104,7 +111,7 @@ def game1(request):
 def game2(request):
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
-    problems = [];
+    problems = []
     answers = []
     count = 0
 
