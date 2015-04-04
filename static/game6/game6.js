@@ -11,69 +11,69 @@ var pos = 0; //variable to indicate how far a person is in the connect the dots 
 var canvas =$('#gameCanvas')[0].getContext('2d');
 //Images for Connect the Dots
 //var im = new Image();
-//im.src = "/static/game5/panda.png";
+//im.src = "/static/game6/kangaroo.png";
 var image = new Image();
-image.src = "/static/game5/pandaInit.png";
+image.src = "/static/game6/kangarooInit.png";
 var img1 = new Image();
-img1.src = "/static/game5/panda1.png";
+img1.src = "/static/game6/kangaroo1.png";
 var img2 = new Image();
-img2.src = "/static/game5/panda2.png";
+img2.src = "/static/game6/kangaroo2.png";
 var img3 = new Image();
-img3.src = "/static/game5/panda3.png";
+img3.src = "/static/game6/kangaroo3.png";
 var img4 = new Image();
-img4.src = "/static/game5/panda4.png";
+img4.src = "/static/game6/kangaroo4.png";
 var img5 = new Image();
-img5.src = "/static/game5/panda5.png";
+img5.src = "/static/game6/kangaroo5.png";
 var img6 = new Image();
-img6.src = "/static/game5/panda6.png";
+img6.src = "/static/game6/kangaroo6.png";
 var img7 = new Image();
-img7.src = "/static/game5/panda7.png";
+img7.src = "/static/game6/kangaroo7.png";
 var img8 = new Image();
-img8.src = "/static/game5/panda8.png";
+img8.src = "/static/game6/kangaroo8.png";
 var img9 = new Image();
-img9.src = "/static/game5/panda9.png";
+img9.src = "/static/game6/kangaroo9.png";
 var img10 = new Image();
-img10.src = "/static/game5/panda10.png";
+img10.src = "/static/game6/kangaroo10.png";
 var img11 = new Image();
-img11.src = "/static/game5/panda11.png";
+img11.src = "/static/game6/kangaroo11.png";
 var img12 = new Image();
-img12.src = "/static/game5/panda12.png";
+img12.src = "/static/game6/kangaroo12.png";
 var img13 = new Image();
-img13.src = "/static/game5/panda13.png";
+img13.src = "/static/game6/kangaroo13.png";
 var img14 = new Image();
-img14.src = "/static/game5/panda14.png";
+img14.src = "/static/game6/kangaroo14.png";
 var img15 = new Image();
-img15.src = "/static/game5/panda15.png";
+img15.src = "/static/game6/kangaroo15.png";
 var img16 = new Image();
-img16.src = "/static/game5/panda16.png";
+img16.src = "/static/game6/kangaroo16.png";
 var img17 = new Image();
-img17.src = "/static/game5/panda17.png";
+img17.src = "/static/game6/kangaroo17.png";
 var img18 = new Image();
-img18.src = "/static/game5/panda18.png";
+img18.src = "/static/game6/kangaroo18.png";
 var img19 = new Image();
-img19.src = "/static/game5/panda19.png";
+img19.src = "/static/game6/kangaroo19.png";
 var img20 = new Image();
-img20.src = "/static/game5/panda20.png";
+img20.src = "/static/game6/kangaroo20.png";
 var img21 = new Image();
-img21.src = "/static/game5/panda21.png";
+img21.src = "/static/game6/kangaroo21.png";
 var img22 = new Image();
-img22.src = "/static/game5/panda22.png";
+img22.src = "/static/game6/kangaroo22.png";
 var img23 = new Image();
-img23.src = "/static/game5/panda23.png";
+img23.src = "/static/game6/kangaroo23.png";
 var img24 = new Image();
-img24.src = "/static/game5/panda24.png";
+img24.src = "/static/game6/kangaroo24.png";
 var img25 = new Image();
-img25.src = "/static/game5/panda25.png";
+img25.src = "/static/game6/kangaroo25.png";
 var img26 = new Image();
-img26.src = "/static/game5/panda26.png";
+img26.src = "/static/game6/kangaroo26.png";
 var img27 = new Image();
-img27.src = "/static/game5/panda27.png";
+img27.src = "/static/game6/kangaroo27.png";
 var img28 = new Image();
-img28.src = "/static/game5/panda28.png";
+img28.src = "/static/game6/kangaroo28.png";
 var img29 = new Image();
-img29.src = "/static/game5/panda29.png";
+img29.src = "/static/game6/kangaroo29.png";
 var img30 = new Image();
-img30.src = "/static/game5/panda30.png";
+img30.src = "/static/game6/kangaroo30.png";
 
 var imgArray = [img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16,img17,img18,img19,img20,img21,img22,img23,img24,img25,img26,img27,img28,img29,img30];
 
@@ -98,46 +98,48 @@ answers = answers.slice(1,answers.length-1);
 answers = answers.split(", ");
 problems = problems.slice(3,problems.length-2);
 problems = problems.split("', u'");
+//answers = [101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,
+// 126,127,128,129,130]; // For Testing Purposes
 
 problemBlock.innerHTML = "<h1>" + problems[0] + "</h1>";
 
 //Placing answers onto the canvas by the corresponding dot
-canvas.strokeText(answers[0],163,36); //point 1
-canvas.strokeText(answers[1],102,43); //point 2
-canvas.strokeText(answers[2],93,85); //point 3
-canvas.strokeText(answers[3],55,136); //point 4
-canvas.strokeText(answers[4],41,185); //point 5
-canvas.strokeText(answers[5],82,254); //point 6
-canvas.strokeText(answers[6],63,282); //point 7
-canvas.strokeText(answers[7],53,385); //point 8
-canvas.strokeText(answers[8],114,391); //point 9
-canvas.strokeText(answers[9],253,373); //point 10
-canvas.strokeText(answers[10],315,307); //point 11
-canvas.strokeText(answers[11],268,244); //point 12
-canvas.strokeText(answers[12],288,145); //point 13
-canvas.strokeText(answers[13],232,78); //point 14
-canvas.strokeText(answers[14],181,226); //point 15
-canvas.strokeText(answers[15],251,131); //point 16
-canvas.strokeText(answers[16],85,218); //point 17
-canvas.strokeText(answers[17],121,115); //point 18
-canvas.strokeText(answers[18],201,200); //point 19
-canvas.strokeText(answers[19],86,176); //point 20 Left Eye
-canvas.strokeText(answers[20],242,293); //point 21
-canvas.strokeText(answers[21],196,320); //point 22
-canvas.strokeText(answers[22],114,312); //point 23
-canvas.strokeText(answers[23],104,324); //point 24
-canvas.strokeText(answers[24],158,367); //point 25
-canvas.strokeText(answers[25],70,355); //point 26
-canvas.strokeText(answers[26],133,218); //point 27
-canvas.strokeText(answers[27],305,105); //point 28
-canvas.strokeText(answers[28],168,302); //point 29
-canvas.strokeText(answers[29],143,303); //point 30
+canvas.strokeText(answers[0],113,359); //point 1
+canvas.strokeText(answers[1],17,394); //point 2
+canvas.strokeText(answers[2],123,388); //point 3
+canvas.strokeText(answers[3],204,370); //point 4
+canvas.strokeText(answers[4],293,390); //point 5
+canvas.strokeText(answers[5],362,381); //point 6
+canvas.strokeText(answers[6],328,349); //point 7
+canvas.strokeText(answers[7],369,310); //point 8
+canvas.strokeText(answers[8],370,260); //point 9
+canvas.strokeText(answers[9],342,208); //point 10
+canvas.strokeText(answers[10],385,179); //point 11
+canvas.strokeText(answers[11],365,149); //point 12
+canvas.strokeText(answers[12],308,98); //point 13
+canvas.strokeText(answers[13],254,19); //point 14
+canvas.strokeText(answers[14],276,91); //point 15
+canvas.strokeText(answers[15],184,66); //point 16
+canvas.strokeText(answers[16],250,121); //point 17
+canvas.strokeText(answers[17],233,193); //point 18
+canvas.strokeText(answers[18],184,309); //point 19
+canvas.strokeText(answers[19],263,273); //point 20
+canvas.strokeText(answers[20],259,360); //point 21
+canvas.strokeText(answers[21],323,151); //point 22
+canvas.strokeText(answers[22],300,151); //point 23
+canvas.strokeText(answers[23],281,255); //point 24
+canvas.strokeText(answers[24],303,270); //point 25
+canvas.strokeText(answers[25],300,290); //point 26
+canvas.strokeText(answers[26],323,299); //point 27
+canvas.strokeText(answers[27],308,244); //point 28
+canvas.strokeText(answers[28],335,280); //point 29
+canvas.strokeText(answers[29],388,284); //point 30
 
 //These variables hold the coordinates for the buttons
-var xcoord = [344,280,273,246,222,270,244,234,295,434,496,443,469,413,362,432,266,302,382,267,423,377,295,275,339,247,
-314,486,339,314];
-var ycoord = [34,43,87,124,185,243,282,365,369,373,307,244,145,78,226,131,218,115,200,176,293,320,310,324,367,355,
-218,105,302,303];
+var xcoord = [294,198,304,385,474,531,489,536,529,513,543,526,489,435,457,365,431,414,365,444,440,499,481,462,484,
+481,494,489,516,546];
+var ycoord = [359,394,388,370,390,381,349,284,250,182,168,149,98,19,91,66,121,193,309,273,360,151,151,255,270,
+290,299,244,280,273];
 //button 'width' and 'height'
 var cnst = 10;
 
@@ -147,7 +149,7 @@ function getPosition(event){
         var x = event.x + 30; //please ignore the constants on x and y - I just had to use them since I had already created my buttons.
         var y = event.y - 177;
         var isComplete = false;
-        //alert(x + ", " + y); //have been using this to make button areas and for troubleshooting
+        alert(x + ", " + y); //have been using this to make button areas and for troubleshooting
         //alert(answers + "\n" + problems); //also used for problem solving - database stuff!
         for (var i = 0; i < xcoord.length; i++) {
             if (x >= xcoord[i] && x <= xcoord[i] + cnst && y >= ycoord[i] && y <= ycoord[i] + cnst) {
