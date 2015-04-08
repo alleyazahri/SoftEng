@@ -199,7 +199,7 @@ function getPosition(event){
                 }
                 else {
                     tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
-                    score -= 2.5;
+                    score -= 1.25;
                     break;
                 }
             }

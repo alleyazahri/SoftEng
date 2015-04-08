@@ -169,7 +169,7 @@ def game5(request):
             rand = Problem.objects.get(pk=rand)
         except ObjectDoesNotExist:
             pass
-        if type(rand) is not int and rand.level == 5:
+        if type(rand) is not int and (rand.level == 1 or rand.level == 2):
             if rand.answer not in answers:
 
                 problems.append(rand.problem)
@@ -191,7 +191,7 @@ def game6(request):
             rand = Problem.objects.get(pk=rand)
         except ObjectDoesNotExist:
             pass
-        if type(rand) is not int and (rand.level == 6 or rand.level == 5 or rand.level == 4):
+        if type(rand) is not int and (rand.level == 5 or rand.level == 4):
             if rand.answer not in answers:
 
                 problems.append(rand.problem)

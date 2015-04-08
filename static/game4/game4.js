@@ -166,8 +166,7 @@ function getPosition(event){
                 }
                 else {
                     tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
-                    score -= 2.5;
-                    break;
+                    score -= 1.67;                    break;
                 }
             }
         }
