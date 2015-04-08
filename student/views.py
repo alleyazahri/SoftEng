@@ -134,19 +134,91 @@ def game3(request):
 
 @login_required    
 def game4(request):
-    return render(request,'student/game4.html')
+    total = Problem.objects.aggregate(Max('pk'))
+    total = total.get('pk__max')
+    problems = []
+    answers = []
+    count = 0
+
+    while count<30:
+        rand = random.randint(1,total)
+        try:
+            rand = Problem.objects.get(pk=rand)
+        except ObjectDoesNotExist:
+            pass
+        if type(rand) is not int and rand.level == 4:
+            if rand.answer not in answers:
+
+                problems.append(rand.problem)
+                answers.append(rand.answer)
+                count = count + 1
+    return render(request,'student/game4.html',{'answerSet' : answers, 'problemSet' : problems})
 
 @login_required
 def game5(request):
-    return render(request,'student/game5.html')
+    total = Problem.objects.aggregate(Max('pk'))
+    total = total.get('pk__max')
+    problems = []
+    answers = []
+    count = 0
+
+    while count<30:
+        rand = random.randint(1,total)
+        try:
+            rand = Problem.objects.get(pk=rand)
+        except ObjectDoesNotExist:
+            pass
+        if type(rand) is not int and (rand.level == 1 or rand.level == 2):
+            if rand.answer not in answers:
+
+                problems.append(rand.problem)
+                answers.append(rand.answer)
+                count = count + 1
+    return render(request,'student/game5.html',{'answerSet' : answers, 'problemSet' : problems})
 
 @login_required    
 def game6(request):
-    return render(request,'student/game6.html')
+    total = Problem.objects.aggregate(Max('pk'))
+    total = total.get('pk__max')
+    problems = []
+    answers = []
+    count = 0
+
+    while count<30:
+        rand = random.randint(1,total)
+        try:
+            rand = Problem.objects.get(pk=rand)
+        except ObjectDoesNotExist:
+            pass
+        if type(rand) is not int and (rand.level == 5 or rand.level == 4):
+            if rand.answer not in answers:
+
+                problems.append(rand.problem)
+                answers.append(rand.answer)
+                count = count + 1
+    return render(request,'student/game6.html',{'answerSet' : answers, 'problemSet' : problems})
 
 @login_required
 def game7(request):
-    return render(request,'student/game7.html')
+    total = Problem.objects.aggregate(Max('pk'))
+    total = total.get('pk__max')
+    problems = []
+    answers = []
+    count = 0
+
+    while count<40:
+        rand = random.randint(1,total)
+        try:
+            rand = Problem.objects.get(pk=rand)
+        except ObjectDoesNotExist:
+            pass
+        if type(rand) is not int and (rand.level == 6 or rand.level == 5 or rand.level == 4 or rand.level == 7):
+            if rand.answer not in answers:
+
+                problems.append(rand.problem)
+                answers.append(rand.answer)
+                count = count + 1
+    return render(request,'student/game7.html',{'answerSet' : answers, 'problemSet' : problems})
 
 def colorGame(request):
     return render(request,'student/coloringGame.html')
