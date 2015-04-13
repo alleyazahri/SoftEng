@@ -1,6 +1,7 @@
 /**
  * Created by Alley on 3/22/2015.
  */
+
 var canvasWidth = 420;
 var canvasHeight = 420;
 
@@ -104,6 +105,12 @@ var ycoord = [31,119,203,304,186,339,295,304,369,252,261,360,329,280,186,108,33,
 var cnst = 10;
 
 var score = 100; //the following function will subtract from the score if a student gets the wrong answer.
+document.getElementById("scoreOfTheStudent").value = score; // Initialize the score output. Just sets it to the starting score, 100
+document.getElementById('id_score').value = score; // Make the score field in the hidden form score.
+document.getElementById('id_level').value = 1; // Make the level field in the hidden form the current level.
+document.getElementById('id_student').value = document.getElementById("user").value; // Make the student field in the hidden form myself.
+document.getElementById("SubmitScoreButton").disabled = true; // Make the save my score button unclickable since the user just started the game.
+
 function getPosition(event){
     if(event != undefined) {
         var x = event.x + 30; //please ignore the constants on x and y - I just had to use them since I had already created my buttons.
@@ -128,14 +135,17 @@ function getPosition(event){
                 }
                 else {
                     tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
-                    score -= 2.5;
+                    score -= 2;
+                    document.getElementById("scoreOfTheStudent").value = score; // Update the score that the user can see
+                    document.getElementById('id_score').value = score; // Update the score in the hidden form
                     break;
                 }
             }
         }
         //alert(isComplete);
-        if (isComplete){
+        if (isComplete) {
             problemBlock.innerHTML = "<h1> Great Work! </h1>";
+            document.getElementById("SubmitScoreButton").disabled = false; // Make the save my score button visible.
         }
     }
 }
