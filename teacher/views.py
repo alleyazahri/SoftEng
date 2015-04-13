@@ -77,10 +77,6 @@ def edit_student(request, pk):
     return render(request, "teacher/editstudent.html", {'stud': us,  'form': form})
 
 
-
-
-
-
 @login_required
 def problemsList(request):
     problems_table = Problem.objects.all()

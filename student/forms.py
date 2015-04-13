@@ -9,8 +9,8 @@ class StudentForm(ModelForm):
         model = User # to identify for which class create a form
         fields = ['first_name', 'last_name', 'email', 'password']
 
-class ScoreForm(ModelForm):
+class ScoreForm(ModelForm): # The form that saves new scores from students
     class Meta:
         model = Score
         fields = ['level', 'student', 'score']
-        widgets = {'level': forms.HiddenInput(), 'student': forms.HiddenInput(), 'score': forms.HiddenInput()}
+        widgets = {'level': forms.HiddenInput(), 'student': forms.HiddenInput(), 'score': forms.HiddenInput()} # Make the form hidden using widgets.

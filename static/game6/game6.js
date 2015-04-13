@@ -144,12 +144,18 @@ var ycoord = [359,394,388,370,390,381,349,284,250,182,168,149,98,19,91,66,121,19
 var cnst = 10;
 
 var score = 100; //the following function will subtract from the score if a student gets the wrong answer.
+document.getElementById("scoreOfTheStudent").value = score;
+document.getElementById('id_score').value = score;
+document.getElementById('id_level').value = 6;
+document.getElementById('id_student').value = document.getElementById("user").value;
+document.getElementById("SubmitScoreButton").disabled = true;
+
 function getPosition(event){
     if(event != undefined) {
         var x = event.x + 30; //please ignore the constants on x and y - I just had to use them since I had already created my buttons.
         var y = event.y - 177;
         var isComplete = false;
-        alert(x + ", " + y); //have been using this to make button areas and for troubleshooting
+        //alert(x + ", " + y); //have been using this to make button areas and for troubleshooting
         //alert(answers + "\n" + problems); //also used for problem solving - database stuff!
         for (var i = 0; i < xcoord.length; i++) {
             if (x >= xcoord[i] && x <= xcoord[i] + cnst && y >= ycoord[i] && y <= ycoord[i] + cnst) {
@@ -168,7 +174,9 @@ function getPosition(event){
                 }
                 else {
                     tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
-                    score -= 1.6;
+                    score -= 1;
+                    document.getElementById("scoreOfTheStudent").value = score;
+                    document.getElementById('id_score').value = score;
                     break;
                 }
             }
@@ -176,6 +184,7 @@ function getPosition(event){
         //alert(isComplete);
         if (isComplete){
             problemBlock.innerHTML = "<h1> Great Work! </h1>";
+            document.getElementById("SubmitScoreButton").disabled = false;
         }
     }
 }
