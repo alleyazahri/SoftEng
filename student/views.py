@@ -27,6 +27,8 @@ def home(request):
     if lvl>6:
         try:
             seven = Score.objects.get(student = numid, level = 7).score
+            if seven < ScoreLimit:
+                lvl = 6.5
         except ObjectDoesNotExist:
             lvl = 6.5
             pass

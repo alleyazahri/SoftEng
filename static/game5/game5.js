@@ -81,7 +81,7 @@ canvas.strokeRect(1,1,canvasWidth,canvasHeight-2); // border for canvas
 
 var tryAgainBlock = document.getElementById("tryAgain"); //variable used to write 'Try Again' into
 var problemBlock = document.getElementById("problems"); //variable used to write problems into
-
+var scoreBlock = document.getElementById("curScore"); //variable used to write the current score into.
 
 window.addEventListener("mousedown", getPosition(event)); //allows the person to 'click' the canvas
 $(image).load(function(){ //makes sure the image is loaded before drawing it onto the canvas.
@@ -144,8 +144,13 @@ var ycoord = [34,43,87,124,185,243,282,365,369,373,307,244,145,78,226,131,218,11
 var cnst = 10;
 
 var score = 100; //the following function will subtract from the score if a student gets the wrong answer.
-document.getElementById("scoreOfTheStudent").value = score;
-document.getElementById('id_score').value = score;
+var scorep2 = 100.0; //holds the 'double' value of score
+
+scoreBlock.innerHTML = "<h3>Current Score: " + score + "</h3>"; // Initialize the score output. Just sets it to the starting score, 100
+
+//Form Stuff
+var formScore = document.getElementById('id_score');
+formScore.value = score; // Make the score field in the hidden form score.
 document.getElementById('id_level').value = 5;
 document.getElementById('id_student').value = document.getElementById("user").value;
 document.getElementById("SubmitScoreButton").disabled = true;
@@ -155,8 +160,7 @@ function getPosition(event){
         var x = event.x + 30; //please ignore the constants on x and y - I just had to use them since I had already created my buttons.
         var y = event.y - 177;
         var isComplete = false;
-        //alert(x + ", " + y); //have been using this to make button areas and for troubleshooting
-        //alert(answers + "\n" + problems); //also used for problem solving - database stuff!
+
         for (var i = 0; i < xcoord.length; i++) {
             if (x >= xcoord[i] && x <= xcoord[i] + cnst && y >= ycoord[i] && y <= ycoord[i] + cnst) {
                 if (pos == i) {
@@ -169,23 +173,23 @@ function getPosition(event){
                         tryAgainBlock.innerHTML = "";
                         problemBlock.innerHTML = "<h1>" + problems[pos] + "</h1>";
                     }
-                    //alert(pos + ", " + isComplete);
+
                     break;
                 }
                 else {
                     tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
-                    score -= 1;
-                    document.getElementById("scoreOfTheStudent").value = score;
-                    document.getElementById('id_score').value = score;
+                    scorep2 -= 2.5;
+                    score = parseInt(scorep2,10);
+                    scoreBlock.innerHTML = "<h3>Current Score: " + score + "</h3>"; // Update the score that the user can see
+                    formScore.value = score; // Update the score in the hidden form
                     break;
                 }
             }
         }
-        //alert(isComplete);
-        if (isComplete){
-            problemBlock.innerHTML = "<h1> Great Work! </h1>";
-            document.getElementById("SubmitScoreButton").disabled = false;
+
+        if (isComplete) {
+            problemBlock.innerHTML = "<h1> Great Work! </h1><h3>Don't forget to save your score below!</h3>";
+            document.getElementById("SubmitScoreButton").disabled = false; // Make the save my score button visible.
         }
     }
 }
-

@@ -135,7 +135,6 @@ function getPosition(event){
                         tryAgainBlock.innerHTML = "";
                         problemBlock.innerHTML = "<h1>" + problems[pos] + "</h1>";
                     }
-                    //alert(pos + ", " + isComplete);
                     break;
                 }
                 else {
