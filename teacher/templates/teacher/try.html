@@ -1,0 +1,25 @@
+<html>
+<head>
+    <script type="text/javascript">
+        function upperCase()
+        {
+            var A = document.getElementById('input').value;
+            var B = document.getElementById('inpit').value;
+            C = A * B
+            document.getElementById('result').value = C;
+        }
+
+    </script>
+</head>
+
+<body>
+input: <input type="text" id="input" name="input" />
+<br />
+input2: <input type="text" id="inpit" name="input" onchange="upperCase()" />
+<br />
+<input type="text" id="result" name="C" readonly="readonly"/>
+<br /><br />
+
+</body>
+
+</html>

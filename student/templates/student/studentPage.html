@@ -7,6 +7,10 @@ Student Profile
 {% endblock page_title %}
 
 {%block homepage%}{% url 'student.views.home' %}{% endblock homepage %}
+{% block userinformationurl %}
+    <li> <a href = "{% url 'student.views.studentedit' %}">Profile edit</a></li>
+    <li> <a href = "{% url 'student.views.profile' %}">Profile</a></li>
+{% endblock userinformationurl %}
 
 
 {% block header %} Welcome, {{ fname }} {{ lname }} {% endblock header %}
@@ -20,74 +24,74 @@ Student Profile
 <!-- Codes by HTML.am -->
 
 <!-- CSS Code -->
-    <style type="text/css" scoped>
-        table.TableOther {
-            width:30%;
-            background-color:#FFFFFF;
-            border-collapse:collapse;border-width:1px;
-            border-color:#336600;
-            border-style:solid;
-            color:#009900;
-        }
+    <!--<style type="text/css" scoped>-->
+        <!--table.TableOther {-->
+            <!--width:100%;-->
+            <!--background-color:#FFFFFF;-->
+            <!--border-collapse:collapse;border-width:1px;-->
+            <!--border-color:#336600;-->
+            <!--border-style:solid;-->
+            <!--color:#009900;-->
+        <!--}-->
 
-        table.GeneratedTable td, table.GeneratedTable th {
-            border-width:1px;
-            border-color:#336600;
-            border-style:solid;
-            padding:4px;
-        }
+        <!--table.GeneratedTable td, table.GeneratedTable th {-->
+            <!--border-width:1px;-->
+            <!--border-color:#336600;-->
+            <!--border-style:solid;-->
+            <!--padding:4px;-->
+        <!--}-->
 
-        table.GeneratedTable thead {
-            background-color:#CCFF99;
-        }
-    </style>
+        <!--table.GeneratedTable thead {-->
+            <!--background-color:#CCFF99;-->
+        <!--}-->
+    <!--</style>-->
 <p>
-<table class="TableOther">
+<table style="width:100%; border-collapse: collapse; border-width:1px; border-color:#336600;border-style:solid;color:#009900;">
     <tbody>
     <tr>
         <td>Username:</td>
-        <td>{{ username }}</td>
+        <td align="center">{{ username }}</td>
     </tr>
     <tr>
         <td>First Name:</td>
-        <td>{{ fname }}</td>
+        <td align="center">{{ fname }}</td>
     </tr>
     <tr>
         <td>Last Name:</td>
-        <td>{{ lname }}</td>
+        <td align="center">{{ lname }}</td>
     </tr>
     <tr>
         <td>Email:</td>
-        <td>{{ email }}</td>
+        <td align="center">{{ email }}</td>
     </tr>
     <tr>
         <td>Current Level:</td>
-        <td>{{ gameLevel }}</td>
+        <td align="center">{{ gameLevel }}</td>
     </tr>
     </tbody>
 </table>
 <p>
-    <style type="text/css" scoped>
-        table.GeneratedTable {
-            width:70%;
-            background-color:#FFFFFF;
-            border-collapse:collapse;border-width:1px;
-            border-color:#336600;
-            border-style:solid;
-            color:#009900;
-        }
+    <!--<style type="text/css" scoped>-->
+        <!--table.GeneratedTable {-->
+            <!--width:90%;-->
+            <!--background-color:#FFFFFF;-->
+            <!--border-collapse:collapse;border-width:1px;-->
+            <!--border-color:#336600;-->
+            <!--border-style:solid;-->
+            <!--color:#009900;-->
+        <!--}-->
 
-        table.GeneratedTable td, table.GeneratedTable th {
-            border-width:1px;
-            border-color:#336600;
-            border-style:solid;
-            padding:4px;
-        }
+        <!--table.GeneratedTable td, table.GeneratedTable th {-->
+            <!--border-width:1px;-->
+            <!--border-color:#336600;-->
+            <!--border-style:solid;-->
+            <!--padding:4px;-->
+        <!--}-->
 
-        table.GeneratedTable thead {
-            background-color:#CCFF99;
-        }
-    </style>
+        <!--table.GeneratedTable thead {-->
+            <!--background-color:#CCFF99;-->
+        <!--}-->
+    <!--</style>-->
     <!-- HTML Code -->
 <table class="GeneratedTable">
     <thead>
@@ -127,67 +131,67 @@ Student Profile
     </tbody>
 </table>
 
-<table cellspacing=0 cellpadding=5 width=400 border=0 align="center">
-    <tbody>
-    <tr valign=top>
-        <td colspan=5></td>
-        <td bgcolor=#ffcccc width="54">&nbsp;</td>
-        <td colspan=2></td>
-    </tr>
-    <tr valign=top>
-        <td width="6"></td>
-        <td bgcolor=#88bbbb width="56">&nbsp;</td>
-        <td colspan=2></td>
-        <td bgcolor=#cc3333 colspan=2 rowspan=2>
-            <p><font face="Arial, Helvetica, sans-serif" size="2" color="#FFFFFF"><b><font color="#FFCFCE">North America<br>
-            </font></b> {{ firstScore }} </font></p>
-        </td>
-        <td bgcolor=#ddaaaa width="3">&nbsp;</td>
-        <td></td>
-    </tr>
-    <tr valign=top>
-        <td bgcolor=#99cccc width="6">&nbsp;</td>
-        <td bgcolor=#006666 colspan=2 rowspan=2>
-            <p><font face="Arial, Helvetica, sans-serif" size="2" color="#8CBABD"><b>South America<br>
-            </b></font><font face="Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">{{ secondScore }} </font></p>
-        </td>
-        <td width="20"><img src="/images/23pixels.gif" width="50" height="5"></td>
-        <td colspan=2 rowspan=2>&nbsp;</td>
-    </tr>
-    <tr valign=top>
-        <td width="6"></td>
-        <td bgcolor=#254D78 colspan=3 rowspan=3>
-            <p align="center"><font face="Arial, Helvetica, sans-serif" color="#FFFFFF" size="3"><b>Africa</b></font></p>
-            <p align="center"><font face="Arial, Helvetica, sans-serif" size="3"><b><font color="#A5C5E2">{{ thirdScore }}</font></b></font></p>
-        </td>
-    </tr>
-    <tr valign=top>
-        <td colspan=2></td>
-        <td bgcolor=#77aaaa width="54">&nbsp;</td>
-        <td bgcolor=#B9D3EC colspan=2 rowspan=2>&nbsp;</td>
-    </tr>
-    <tr valign=top>
-        <td width="6">&nbsp;</td>
-        <td bgcolor=#FFCF63 colspan=2 rowspan=4>
-            <p><font face="Arial, Helvetica, sans-serif" size="2" color="#FFF4DF"><b><font color="#FFF5DF">Europe</font><br>
-            </b></font><font face="Arial, Helvetica, sans-serif" size="2">{{ fourthScore }} </font></p>
-        </td>
-    </tr>
-    <tr valign=top>
-        <td bgcolor=#FFE3AD width="6" rowspan="3">&nbsp;</td>
-        <td rowspan=3 width="20">
-            <p>&nbsp;</p>
-        </td>
-        <td width="10" bgcolor=#BDD3EF></td>
-        <td colspan=3 bgcolor=#357CC4 rowspan=3><font face="Arial, Helvetica, sans-serif" size="2" color="#BDD3EF"><b>Asia</b> </font><font face="Arial, Helvetica, sans-serif" size="2"><br>
-            <font color="#FFFFFF">{{ fifthScore }} </font></font></td>
-    </tr>
-    <tr valign=top>
-        <td width="1" bgcolor="#BDD3EF">&nbsp;</td>
-    </tr>
-    <tr valign=top>
-        <td width="1">&nbsp;</td>
-    </tr>
-    </tbody>
-</table>
+<!--<table cellspacing=0 cellpadding=5 width=400 border=0 align="center">-->
+    <!--<tbody>-->
+    <!--<tr valign=top>-->
+        <!--<td colspan=5></td>-->
+        <!--<td bgcolor=#ffcccc width="54">&nbsp;</td>-->
+        <!--<td colspan=2></td>-->
+    <!--</tr>-->
+    <!--<tr valign=top>-->
+        <!--<td width="6"></td>-->
+        <!--<td bgcolor=#88bbbb width="56">&nbsp;</td>-->
+        <!--<td colspan=2></td>-->
+        <!--<td bgcolor=#cc3333 colspan=2 rowspan=2>-->
+            <!--<p><font face="Arial, Helvetica, sans-serif" size="2" color="#FFFFFF"><b><font color="#FFCFCE">North America<br>-->
+            <!--</font></b> {{ firstScore }} </font></p>-->
+        <!--</td>-->
+        <!--<td bgcolor=#ddaaaa width="3">&nbsp;</td>-->
+        <!--<td></td>-->
+    <!--</tr>-->
+    <!--<tr valign=top>-->
+        <!--<td bgcolor=#99cccc width="6">&nbsp;</td>-->
+        <!--<td bgcolor=#006666 colspan=2 rowspan=2>-->
+            <!--<p><font face="Arial, Helvetica, sans-serif" size="2" color="#8CBABD"><b>South America<br>-->
+            <!--</b></font><font face="Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">{{ secondScore }} </font></p>-->
+        <!--</td>-->
+        <!--<td width="20"><img src="/images/23pixels.gif" width="50" height="5"></td>-->
+        <!--<td colspan=2 rowspan=2>&nbsp;</td>-->
+    <!--</tr>-->
+    <!--<tr valign=top>-->
+        <!--<td width="6"></td>-->
+        <!--<td bgcolor=#254D78 colspan=3 rowspan=3>-->
+            <!--<p align="center"><font face="Arial, Helvetica, sans-serif" color="#FFFFFF" size="3"><b>Africa</b></font></p>-->
+            <!--<p align="center"><font face="Arial, Helvetica, sans-serif" size="3"><b><font color="#A5C5E2">{{ thirdScore }}</font></b></font></p>-->
+        <!--</td>-->
+    <!--</tr>-->
+    <!--<tr valign=top>-->
+        <!--<td colspan=2></td>-->
+        <!--<td bgcolor=#77aaaa width="54">&nbsp;</td>-->
+        <!--<td bgcolor=#B9D3EC colspan=2 rowspan=2>&nbsp;</td>-->
+    <!--</tr>-->
+    <!--<tr valign=top>-->
+        <!--<td width="6">&nbsp;</td>-->
+        <!--<td bgcolor=#FFCF63 colspan=2 rowspan=4>-->
+            <!--<p><font face="Arial, Helvetica, sans-serif" size="2" color="#FFF4DF"><b><font color="#FFF5DF">Europe</font><br>-->
+            <!--</b></font><font face="Arial, Helvetica, sans-serif" size="2">{{ fourthScore }} </font></p>-->
+        <!--</td>-->
+    <!--</tr>-->
+    <!--<tr valign=top>-->
+        <!--<td bgcolor=#FFE3AD width="6" rowspan="3">&nbsp;</td>-->
+        <!--<td rowspan=3 width="20">-->
+            <!--<p>&nbsp;</p>-->
+        <!--</td>-->
+        <!--<td width="10" bgcolor=#BDD3EF></td>-->
+        <!--<td colspan=3 bgcolor=#357CC4 rowspan=3><font face="Arial, Helvetica, sans-serif" size="2" color="#BDD3EF"><b>Asia</b> </font><font face="Arial, Helvetica, sans-serif" size="2"><br>-->
+            <!--<font color="#FFFFFF">{{ fifthScore }} </font></font></td>-->
+    <!--</tr>-->
+    <!--<tr valign=top>-->
+        <!--<td width="1" bgcolor="#BDD3EF">&nbsp;</td>-->
+    <!--</tr>-->
+    <!--<tr valign=top>-->
+        <!--<td width="1">&nbsp;</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+<!--</table>-->
 {% endblock content %}
