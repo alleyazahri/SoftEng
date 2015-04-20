@@ -107,18 +107,9 @@ def changepword(request):
 @login_required
 def game1(request):
     # Get student
-    count = Student.objects.count()
-    # student = get_object_or_404(Student, pk =request.user.id)
-    lvl = 1
-    for i in range(count):
-        try:
-            temp = Student.objects.get(id=i+1)
-            if request.user.username == temp.user.username:
-                lvl = temp.current_level
-                student = temp
-        except ObjectDoesNotExist:
-            pass
-    # Make random problems:
+    student = get_object_or_404(Student, user =request.user)
+    lvl = student.current_level
+
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
     problems = []
@@ -170,17 +161,8 @@ def game1(request):
 @login_required    
 def game2(request):
     # Get student
-    count = Student.objects.count()
-    # student = get_object_or_404(Student, pk =request.user.id)
-    lvl = 1
-    for i in range(count):
-        try:
-            temp = Student.objects.get(id=i+1)
-            if request.user.username == temp.user.username:
-                lvl = temp.current_level
-                student = temp
-        except ObjectDoesNotExist:
-            pass
+    student = get_object_or_404(Student, user =request.user)
+    lvl = student.current_level
 
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
@@ -237,17 +219,9 @@ def game3(request):
 
 @login_required    
 def game4(request):
-    count = Student.objects.count()
-    # student = get_object_or_404(Student, pk =request.user.id)
-    lvl = 1
-    for i in range(count):
-        try:
-            temp = Student.objects.get(id=i+1)
-            if request.user.username == temp.user.username:
-                lvl = temp.current_level
-                student = temp
-        except ObjectDoesNotExist:
-            pass
+    # Get student
+    student = get_object_or_404(Student, user =request.user)
+    lvl = student.current_level
 
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
@@ -298,17 +272,9 @@ def game4(request):
 
 @login_required
 def game5(request):
-    count = Student.objects.count()
-    # student = get_object_or_404(Student, pk =request.user.id)
-    lvl = 1
-    for i in range(count):
-        try:
-            temp = Student.objects.get(id=i+1)
-            if request.user.username == temp.user.username:
-                lvl = temp.current_level
-                student = temp
-        except ObjectDoesNotExist:
-            pass
+    # Get student
+    student = get_object_or_404(Student, user =request.user)
+    lvl = student.current_level
 
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
@@ -359,17 +325,9 @@ def game5(request):
 
 @login_required    
 def game6(request):
-    count = Student.objects.count()
-    # student = get_object_or_404(Student, pk =request.user.id)
-    lvl = 1
-    for i in range(count):
-        try:
-            temp = Student.objects.get(id=i+1)
-            if request.user.username == temp.user.username:
-                lvl = temp.current_level
-                student = temp
-        except ObjectDoesNotExist:
-            pass
+    # Get student
+    student = get_object_or_404(Student, user =request.user)
+    lvl = student.current_level
 
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
@@ -420,17 +378,9 @@ def game6(request):
 
 @login_required
 def game7(request):
-    count = Student.objects.count()
-    # student = get_object_or_404(Student, pk =request.user.id)
-    lvl = 1
-    for i in range(count):
-        try:
-            temp = Student.objects.get(id=i+1)
-            if request.user.username == temp.user.username:
-                lvl = temp.current_level
-                student = temp
-        except ObjectDoesNotExist:
-            pass
+    # Get student
+    student = get_object_or_404(Student, user =request.user)
+    lvl = student.current_level
 
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
@@ -480,7 +430,7 @@ def colorGame(request):
 @login_required
 def studentedit(request):
     user = get_object_or_404(User, pk = request.user.pk)
-    stud = get_object_or_404(Student, id = request.user.pk)
+    stud = get_object_or_404(Student, user = user)
     gameLevel = stud.current_level
     if request.method == 'POST':
         if "edit" in request.POST:

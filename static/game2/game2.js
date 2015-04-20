@@ -58,6 +58,7 @@ canvas.strokeRect(1,1,canvasWidth,canvasHeight-2); // border for canvas
 
 var tryAgainBlock = document.getElementById("tryAgain"); //variable used to write 'Try Again' into
 var problemBlock = document.getElementById("problems"); //variable used to write problems into
+var scoreBlock = document.getElementById("curScore"); //variable used to write the current score into.
 
 window.addEventListener("mousedown", getPosition(event)); //allows the person to 'click' the canvas
 $(image).load(function(){ //makes sure the image is loaded before drawing it onto the canvas.
@@ -110,18 +111,22 @@ var ycoord = [311,306,401,243,333,  //1-5
 var cnst = 10;
 
 var score = 100; //the following function will subtract from the score if a student gets the wrong answer.
-document.getElementById("scoreOfTheStudent").value = score;
-document.getElementById('id_score').value = score;
-document.getElementById('id_level').value = 2;
-document.getElementById('id_student').value = document.getElementById("user").value;
-document.getElementById('SubmitScoreButton').disabled = true;
+var scorep2 = 100.0; //holds the 'double' value of score
+
+scoreBlock.innerHTML = "<h3>Current Score: " + score + "</h3>"; // Initialize the score output. Just sets it to the starting score, 100
+
+//Form Stuff
+var formScore = document.getElementById('id_score');
+formScore.value = score; // Make the score field in the hidden form score.
+document.getElementById('id_level').value = 2; // Make the level field in the hidden form the current level.
+document.getElementById('id_student').value = document.getElementById("user").value; // Make the student field in the hidden form myself.
+document.getElementById("SubmitScoreButton").disabled = true; // Make the save my score button unclickable since the user just started the game.
 
 function getPosition(event){
     if(event != undefined) {
-        var x = event.x; //please ignore the constants on x and y - I just had to use them since I had already created my buttons.
+        var x = event.x;
         var y = event.y;
         var isComplete = false;
-
         //alert(x + ", " + y); //have been using this to make button areas and for troubleshooting
         //alert(answers + "\n" + problems); //also used for problem solving - database stuff!
         for (var i = 0; i < xcoord.length; i++) {
@@ -141,17 +146,18 @@ function getPosition(event){
                 }
                 else {
                     tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
-                    score -= 2;
-                    document.getElementById("scoreOfTheStudent").value = score;
-                    document.getElementById('id_score').value = score;
+                    scorep2 -= 2.5;
+                    score = parseInt(scorep2,10);
+                    scoreBlock.innerHTML = "<h3>Current Score: " + score + "</h3>"; // Update the score that the user can see
+                    formScore.value = score; // Update the score in the hidden form
                     break;
                 }
             }
         }
-        //alert(isComplete);
+
         if (isComplete) {
-            problemBlock.innerHTML = "<h1> Great Work! </h1>";
-            document.getElementById("SubmitScoreButton").disabled = false;
+            problemBlock.innerHTML = "<h1> Great Work! </h1><h3>Don't forget to save your score below!</h3>";
+            document.getElementById("SubmitScoreButton").disabled = false; // Make the save my score button visible.
         }
     }
 }
