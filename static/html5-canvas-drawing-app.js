@@ -15,10 +15,8 @@
 
 var canvas;
 var context;
-//var canvasWidth = 490;
-var canvasWidth = 490*1.6;
-//var canvasHeight = 220;
-var canvasHeight = 220*1.6;
+var canvasWidth = 784;
+var canvasHeight = 450;
 var padding = 25;
 var lineWidth = 8;
 var colorPurple = "#cb3594";
@@ -43,29 +41,17 @@ var paint = false;
 var curColor = colorPurple;
 var curTool = "crayon";
 var curSize = "normal";
-//var mediumStartX = 18;
 var mediumStartX = 19;
-//var mediumStartY = 19;
 var mediumStartY = 19;
-//var mediumImageWidth = 93;
 var mediumImageWidth = 93;
-//var mediumImageHeight = 46;
 var mediumImageHeight = 46;
-//var drawingAreaX = 111;
-var drawingAreaX = 111*1.6;
-//var drawingAreaY = 11;
-var drawingAreaY = 11*1.6;
-//var drawingAreaWidth = 267;
-var drawingAreaWidth = 267*1.6;
-//var drawingAreaHeight = 200;
-var drawingAreaHeight = 200*1.6;
-//var toolHotspotStartY = 23;
+var drawingAreaX = 108;
+var drawingAreaY = 33;
+var drawingAreaWidth = 400;
+var drawingAreaHeight = 290;
 var toolHotspotStartY = 23*1.6;
-//var toolHotspotHeight = 38;
 var toolHotspotHeight = 38*1.6;
-//var sizeHotspotStartY = 157;
 var sizeHotspotStartY = 157*1.6;
-//var sizeHotspotHeight = 36;
 var sizeHotspotHeight = 36*1.6;
 var sizeHotspotWidthObject = new Object();
 sizeHotspotWidthObject.huge = 39*1.6;
@@ -74,10 +60,12 @@ sizeHotspotWidthObject.normal = 18*1.6;
 sizeHotspotWidthObject.small = 16*1.6;
 var totalLoadResources = 8;
 var curLoadResNum = 0;
-var xoffset = 240;
-var yoffset = 89;
+var xoffset = 230;
+var yoffset = 130;
+
+
 /**
-* Calls the redraw function after all neccessary resources are loaded.
+* Calls the redraw function after all necessary resources are loaded.
 */
 function resourceLoaded()
 {
@@ -122,15 +110,15 @@ function prepareCanvas()
 	
 	crayonBackgroundImage.onload = function() { resourceLoaded(); 
 	};
-	crayonBackgroundImage.src = "/static/images/crayon-background.png";
+	crayonBackgroundImage.src = "/static/images/Crayon-background-new.png";
 	
 	markerBackgroundImage.onload = function() { resourceLoaded(); 
 	};
-	markerBackgroundImage.src = "/static/images/marker-background.png";
+	markerBackgroundImage.src = "/static/images/Marker-background-new.png";
 	
 	eraserBackgroundImage.onload = function() { resourceLoaded(); 
 	};
-	eraserBackgroundImage.src = "/static/images/eraser-background.png";
+	eraserBackgroundImage.src = "/static/images/Eraser-background-new.png";
 
 	crayonTextureImage.onload = function() { resourceLoaded(); 
 	};
@@ -152,13 +140,13 @@ function prepareCanvas()
 		{
 			if(mouseX > mediumStartX)
 			{
-				if(mouseY > mediumStartY && mouseY < mediumStartY + mediumImageHeight){
+				if(mouseY > mediumStartY && mouseY < mediumStartY + mediumImageHeight && markerUnlock > 0){
 					curColor = colorPurple;
-				}else if(mouseY > mediumStartY + mediumImageHeight && mouseY < mediumStartY + mediumImageHeight * 2){
+				}else if(mouseY > mediumStartY + mediumImageHeight && mouseY < mediumStartY + mediumImageHeight * 2 && markerUnlock > 1){
 					curColor = colorGreen;
-				}else if(mouseY > mediumStartY + mediumImageHeight * 2 && mouseY < mediumStartY + mediumImageHeight * 3){
+				}else if(mouseY > mediumStartY + mediumImageHeight * 2 && mouseY < mediumStartY + mediumImageHeight * 3 && markerUnlock > 2){
 					curColor = colorYellow;
-				}else if(mouseY > mediumStartY + mediumImageHeight * 3 && mouseY < mediumStartY + mediumImageHeight * 4){
+				}else if(mouseY > mediumStartY + mediumImageHeight * 3 && mouseY < mediumStartY + mediumImageHeight * 4 && markerUnlock > 3){
 					curColor = colorBrown;
 				}
 			}
@@ -257,15 +245,14 @@ function redraw()
 	
 	var locX;
 	var locY;
-	var xoffsetValue = 4.5
 	if(curTool == "crayon")
 	{
 		// Draw the crayon tool background
-		context.drawImage(crayonBackgroundImage, 0, 0, canvasWidth, canvasHeight);
+		context.drawImage(crayonBackgroundImage, 0, -30, canvasWidth, canvasHeight);
 		
 		// Purple
-		locX = (curColor == colorPurple) ? 18*xoffsetValue : 52*xoffsetValue/2;
-		locY = 19;
+		locX = (curColor == colorPurple) ? 15 : 47;
+		locY = 40;
 		
 		context.beginPath();
 		context.moveTo(locX + 41, locY + 11);
@@ -288,7 +275,7 @@ function redraw()
 		}
 		
 		// Green
-		locX = (curColor == colorGreen) ? 18*xoffsetValue : 52*xoffsetValue/2;
+		locX = (curColor == colorGreen) ? 15 : 47;
 		locY += 46;
 		
 		context.beginPath();
@@ -312,7 +299,7 @@ function redraw()
 		}
 		
 		// Yellow
-		locX = (curColor == colorYellow) ? 18*xoffsetValue : 52*xoffsetValue/2;
+		locX = (curColor == colorYellow) ? 15 : 47;
 		locY += 46;
 		
 		context.beginPath();
@@ -335,8 +322,8 @@ function redraw()
 			context.drawImage(crayonImage, 0, 0, 59, mediumImageHeight, locX, locY, 59, mediumImageHeight);
 		}
 		
-		// Yellow
-		locX = (curColor == colorBrown) ? 18*xoffsetValue : 52*xoffsetValue/2;
+		// Brown
+		locX = (curColor == colorBrown) ? 15 : 47;
 		locY += 46;
 		
 		context.beginPath();
@@ -362,11 +349,11 @@ function redraw()
 	else if(curTool == "marker")
 	{
 		// Draw the marker tool background
-		context.drawImage(markerBackgroundImage, 0, 0, canvasWidth, canvasHeight);
+		context.drawImage(markerBackgroundImage, 0, -30, canvasWidth, canvasHeight);
 		
 		// Purple
-		locX = (curColor == colorPurple) ? 18*xoffsetValue : 52*xoffsetValue/2;
-		locY = 19;
+		locX = (curColor == colorPurple) ? 15 : 47;
+		locY = 40;
 		
 		context.beginPath();
 		context.moveTo(locX + 10, locY + 24);
@@ -384,7 +371,7 @@ function redraw()
 		}
 		
 		// Green
-		locX = (curColor == colorGreen) ? 18*xoffsetValue : 52*xoffsetValue/2;
+		locX = (curColor == colorGreen) ? 15 : 47;
 		locY += 46;
 		
 		context.beginPath();
@@ -403,7 +390,7 @@ function redraw()
 		}
 		
 		// Yellow
-		locX = (curColor == colorYellow) ? 18*xoffsetValue : 52*xoffsetValue/2;
+		locX = (curColor == colorYellow) ? 15 : 47;
 		locY += 46;
 		
 		context.beginPath();
@@ -422,7 +409,7 @@ function redraw()
 		}
 		
 		// Yellow
-		locX = (curColor == colorBrown) ? 18*xoffsetValue : 52*xoffsetValue/2;
+		locX = (curColor == colorBrown) ? 15 : 47;
 		locY += 46;
 		
 		context.beginPath();
@@ -442,8 +429,8 @@ function redraw()
 	}
 	else if(curTool == "eraser")
 	{
-		context.drawImage(eraserBackgroundImage, 0, 0, canvasWidth, canvasHeight);
-		context.drawImage(eraserImage, 18, 19, mediumImageWidth, mediumImageHeight);	
+		context.drawImage(eraserBackgroundImage, 0, -30, canvasWidth, canvasHeight);
+		context.drawImage(eraserImage, 15, 71, mediumImageWidth, mediumImageHeight);	
 	}else{
 		alert("Error: Current Tool is undefined");
 	}
@@ -521,6 +508,7 @@ function redraw()
 	// Draw the outline image
 	context.drawImage(outlineImage, drawingAreaX, drawingAreaY, drawingAreaWidth, drawingAreaHeight);
 }
+
 
 
 /**/
