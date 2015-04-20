@@ -38,7 +38,6 @@ def profile(request):
 
     username = request.user.username
     count = Student.objects.count()
-    student = get_object_or_404(Student, pk =request.user.id)
     for i in range(count):
         temp = Student.objects.get(id=i+1)
         if username == temp.user.username:
@@ -109,7 +108,7 @@ def changepword(request):
 def game1(request):
     # Get student
     count = Student.objects.count()
-    student = get_object_or_404(Student, pk =request.user.id)
+    # student = get_object_or_404(Student, pk =request.user.id)
     lvl = 1
     for i in range(count):
         try:
@@ -172,7 +171,7 @@ def game1(request):
 def game2(request):
     # Get student
     count = Student.objects.count()
-    student = get_object_or_404(Student, pk =request.user.id)
+    # student = get_object_or_404(Student, pk =request.user.id)
     lvl = 1
     for i in range(count):
         try:
@@ -239,7 +238,7 @@ def game3(request):
 @login_required    
 def game4(request):
     count = Student.objects.count()
-    student = get_object_or_404(Student, pk =request.user.id)
+    # student = get_object_or_404(Student, pk =request.user.id)
     lvl = 1
     for i in range(count):
         try:
@@ -300,7 +299,7 @@ def game4(request):
 @login_required
 def game5(request):
     count = Student.objects.count()
-    student = get_object_or_404(Student, pk =request.user.id)
+    # student = get_object_or_404(Student, pk =request.user.id)
     lvl = 1
     for i in range(count):
         try:
@@ -361,7 +360,7 @@ def game5(request):
 @login_required    
 def game6(request):
     count = Student.objects.count()
-    student = get_object_or_404(Student, pk =request.user.id)
+    # student = get_object_or_404(Student, pk =request.user.id)
     lvl = 1
     for i in range(count):
         try:
@@ -422,7 +421,7 @@ def game6(request):
 @login_required
 def game7(request):
     count = Student.objects.count()
-    student = get_object_or_404(Student, pk =request.user.id)
+    # student = get_object_or_404(Student, pk =request.user.id)
     lvl = 1
     for i in range(count):
         try:
