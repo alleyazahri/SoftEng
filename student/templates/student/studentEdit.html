@@ -5,6 +5,10 @@
 {%block header%}Edit Profile{%endblock header%}
 
 {%block homepage%}{% url 'student.views.home' %}{% endblock homepage %}
+{% block userinformationurl %}
+    <li> <a href = "{% url 'student.views.studentedit' %}">Profile edit</a></li>
+    <li> <a href = "{% url 'student.views.profile' %}">Profile</a></li>
+{% endblock userinformationurl %}
 
 {% block userinformationurl %}
 

@@ -5,6 +5,10 @@
 {%block page_title%} Game 1 {%endblock page_title%}
 {%block header%} First Game {%endblock header%}
 {%block homepage%} {% url 'student.views.home' %} {%endblock homepage%}
+{% block userinformationurl %}
+    <li> <a href = "{% url 'student.views.studentedit' %}">Profile edit</a></li>
+    <li> <a href = "{% url 'student.views.profile' %}">Profile</a></li>
+{% endblock userinformationurl %}
 
 {%block content%}
     <div id ="canv" style="display: inline-block; position: fixed; top:175px; left: 140px">
