@@ -7,8 +7,9 @@ from django.db.models import Max
 from .forms import *
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
-from django.contrib.auth import logout
-from datetime import datetime
+from django.contrib.auth import *
+
+ScoreLimit = 60
 
 # Create your views here.
 @login_required
@@ -36,46 +37,64 @@ def home(request):
 def profile(request):
 
     username = request.user.username
-    email = request.user.email
     count = Student.objects.count()
     for i in range(count):
         temp = Student.objects.get(id=i+1)
         if username == temp.user.username:
-            firname = temp.user.first_name
-            lasname = temp.user.last_name
+            student = temp
             level = temp.current_level
-            numid = i+1
-    if level > 1:
-        oneScore = Score.objects.get(student = numid, level = 1).score
-    else:
-        oneScore = " - "
-    if level > 2:
-        twoScore = Score.objects.get(student = numid, level = 2).score
-    else:
-        twoScore = " - "
-    if level > 3:
-        threeScore = Score.objects.get(student = numid, level = 3).score
-    else:
-        threeScore = " - "
-    if level > 4:
-        fourScore = Score.objects.get(student = numid, level = 4).score
-    else:
-        fourScore = " - "
-    if level > 5:
-        fiveScore = Score.objects.get(student = numid, level = 5).score
-    else:
-        fiveScore = " - "
-    if level > 6:
-        sixScore = Score.objects.get(student = numid, level = 6).score
+    oneScore = " - "
+    twoScore = " - "
+    threeScore = " - "
+    fourScore = " - "
+    fiveScore = " - "
+    sixScore = " - "
+    sevenScore = " - "
+    if level >= 1:
         try:
-            sevenScore = Score.objects.get(student = numid, level = 7).score
+            oneScore = Score.objects.get(student = student, level = 1).score
+        except ObjectDoesNotExist:
+            oneScore = " - "
+            pass
+    if level >= 2:
+        try:
+            twoScore = Score.objects.get(student = student, level = 2).score
+        except ObjectDoesNotExist:
+            twoScore = " - "
+            pass
+    if level >= 3:
+        try:
+            threeScore = Score.objects.get(student = student, level = 3).score
+        except ObjectDoesNotExist:
+            threeScore = " - "
+            pass
+    if level >= 4:
+        try:
+            fourScore = Score.objects.get(student = student, level = 4).score
+        except ObjectDoesNotExist:
+            fourScore = " - "
+            pass
+    if level >= 5:
+        try:
+            fiveScore = Score.objects.get(student = student, level = 5).score
+        except ObjectDoesNotExist:
+            fiveScore = " - "
+            pass
+    if level >= 6:
+        try:
+            sixScore = Score.objects.get(student = student, level = 6).score
+        except ObjectDoesNotExist:
+            sixScore = " - "
+            pass
+    if level >= 7:
+        try:
+            sevenScore = Score.objects.get(student = student, level = 7).score
         except ObjectDoesNotExist:
             sevenScore = " - "
             pass
-    else:
-        sixScore = " - "
-        sevenScore = " - "
-    return render(request,'student/studentPage.html',{'fname' : firname, 'lname' : lasname, 'username' : username, 'email' : email,
+
+    return render(request,'student/studentPage.html',{'fname' : request.user.first_name, 'lname' : request.user.last_name,
+                                                      'username' : request.user.username, 'email' : request.user.email,
                                                       'gameLevel' : level, 'firstScore' : oneScore, 'secondScore' : twoScore,
                                                       'thirdScore' : threeScore, 'fourthScore' : fourScore,
                                                       'fifthScore' : fiveScore, 'sixthScore' : sixScore,
@@ -87,12 +106,24 @@ def changepword(request):
 
 @login_required
 def game1(request):
+    # Get student
+    count = Student.objects.count()
+    # student = get_object_or_404(Student, pk =request.user.id)
+    lvl = 1
+    for i in range(count):
+        try:
+            temp = Student.objects.get(id=i+1)
+            if request.user.username == temp.user.username:
+                lvl = temp.current_level
+                student = temp
+        except ObjectDoesNotExist:
+            pass
+    # Make random problems:
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
     problems = []
     answers = []
     count = 0
-
     while count<20:
         rand = random.randint(1,total)
         try:
@@ -101,14 +132,56 @@ def game1(request):
             pass
         if type(rand) is not int and rand.level == 1:
             if rand.answer not in answers:
-
                 problems.append(rand.problem)
                 answers.append(rand.answer)
                 count = count + 1
-    return render(request,'student/game1.html',{'answerSet' : answers, 'problemSet' : problems})
+
+    # Check the form. If the game just started, pass empty form. Otherwise, save the form
+    if request.method == 'POST':
+        if "edit" in request.POST:
+            form = ScoreForm(request.POST)
+            if form.is_valid():
+                # Save the form if score at that level did not exist or if new score is bigger than previous one
+                try:
+                    CurrentScore = Score.objects.all().get(student = student, level = 1) # Get the score at that level. If it did not exist, go tp exception
+                    if CurrentScore.score < int(form.data['score']): # Compare previous score to new one.
+                        CurrentScore.delete() # If new is bigger, delete previous score and save new one.
+                        form.save()
+                except ObjectDoesNotExist: # If the score at that level did not exist, just save the form
+                    form.save()
+                    pass
+
+                # Update the level if score is larger than limit.
+                CurrentScore = Score.objects.all().get(student = student, level = 1)
+                if lvl==1:
+                    if CurrentScore.score>=ScoreLimit:
+                        student.current_level = 2
+                        student.save()
+                return redirect('student.views.home') # Goes after saving
+            else:
+                return redirect('student.views.profile')
+        else:
+            return redirect('student.views.home')
+    else:
+        form = ScoreForm()
+    return render(request,'student/game1.html', {'answerSet' : answers, 'problemSet' : problems, 'form':form, 'stud':student})
+
 
 @login_required    
 def game2(request):
+    # Get student
+    count = Student.objects.count()
+    # student = get_object_or_404(Student, pk =request.user.id)
+    lvl = 1
+    for i in range(count):
+        try:
+            temp = Student.objects.get(id=i+1)
+            if request.user.username == temp.user.username:
+                lvl = temp.current_level
+                student = temp
+        except ObjectDoesNotExist:
+            pass
+
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
     problems = []
@@ -127,7 +200,36 @@ def game2(request):
                 problems.append(rand.problem)
                 answers.append(rand.answer)
                 count = count + 1
-    return render(request,'student/game2.html',{'answerSet' : answers, 'problemSet' : problems})
+
+    if request.method == 'POST':
+        if "edit" in request.POST:
+            form = ScoreForm(request.POST)
+            if form.is_valid():
+                # Do stuff with the previous form if existed and save new form
+                try:
+                    CurrentScore = Score.objects.all().get(student = student, level = 2)
+                    if CurrentScore.score < int(form.data['score']):
+                        CurrentScore.delete()
+                        form.save()
+                except ObjectDoesNotExist:
+                    form.save()
+                    pass
+
+                CurrentScore = Score.objects.all().get(student = student, level = 2)
+                if lvl==2:
+                    if CurrentScore.score>=ScoreLimit:
+                        student.current_level = 3
+                        student.save()
+                return redirect('student.views.home')
+            else:
+                return redirect('student.views.profile')
+        else:
+            return redirect('student.views.home')
+    else:
+        form = ScoreForm()
+    return render(request,'student/game2.html',{'answerSet' : answers, 'problemSet' : problems, 'form':form, 'stud':student})
+
+
 
 @login_required
 def game3(request):
@@ -135,6 +237,18 @@ def game3(request):
 
 @login_required    
 def game4(request):
+    count = Student.objects.count()
+    # student = get_object_or_404(Student, pk =request.user.id)
+    lvl = 1
+    for i in range(count):
+        try:
+            temp = Student.objects.get(id=i+1)
+            if request.user.username == temp.user.username:
+                lvl = temp.current_level
+                student = temp
+        except ObjectDoesNotExist:
+            pass
+
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
     problems = []
@@ -153,10 +267,49 @@ def game4(request):
                 problems.append(rand.problem)
                 answers.append(rand.answer)
                 count = count + 1
-    return render(request,'student/game4.html',{'answerSet' : answers, 'problemSet' : problems})
+
+    if request.method == 'POST':
+        if "edit" in request.POST:
+            form = ScoreForm(request.POST)
+            if form.is_valid():
+                # Do stuff with the previous form if existed and save new form
+                try:
+                    CurrentScore = Score.objects.all().get(student = student, level = 4)
+                    if CurrentScore.score < int(form.data['score']):
+                        CurrentScore.delete()
+                        form.save()
+                except ObjectDoesNotExist:
+                    form.save()
+                    pass
+
+                CurrentScore = Score.objects.all().get(student = student, level = 4)
+                if lvl==4:
+                    if CurrentScore.score>=ScoreLimit:
+                        student.current_level = 5
+                        student.save()
+                return redirect('student.views.home')
+            else:
+                return redirect('student.views.profile')
+        else:
+            return redirect('student.views.home')
+    else:
+        form = ScoreForm()
+    return render(request,'student/game4.html',{'answerSet' : answers, 'problemSet' : problems, 'form':form, 'stud':student})
 
 @login_required
 def game5(request):
+    count = Student.objects.count()
+    # student = get_object_or_404(Student, pk =request.user.id)
+    lvl = 1
+    for i in range(count):
+        try:
+            temp = Student.objects.get(id=i+1)
+            if request.user.username == temp.user.username:
+                lvl = temp.current_level
+                student = temp
+        except ObjectDoesNotExist:
+            pass
+
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
     problems = []
@@ -175,10 +328,49 @@ def game5(request):
                 problems.append(rand.problem)
                 answers.append(rand.answer)
                 count = count + 1
-    return render(request,'student/game5.html',{'answerSet' : answers, 'problemSet' : problems})
+
+    if request.method == 'POST':
+        if "edit" in request.POST:
+            form = ScoreForm(request.POST)
+            if form.is_valid():
+                # Do stuff with the previous form if existed and save new form
+                try:
+                    CurrentScore = Score.objects.all().get(student = student, level = 5)
+                    if CurrentScore.score < int(form.data['score']):
+                        CurrentScore.delete()
+                        form.save()
+                except ObjectDoesNotExist:
+                    form.save()
+                    pass
+
+                CurrentScore = Score.objects.all().get(student = student, level = 5)
+                if lvl==5:
+                    if CurrentScore.score>=ScoreLimit:
+                        student.current_level = 6
+                        student.save()
+                return redirect('student.views.home')
+            else:
+                return redirect('student.views.profile')
+        else:
+            return redirect('student.views.home')
+    else:
+        form = ScoreForm()
+    return render(request,'student/game5.html',{'answerSet' : answers, 'problemSet' : problems, 'form':form, 'stud':student})
 
 @login_required    
 def game6(request):
+    count = Student.objects.count()
+    # student = get_object_or_404(Student, pk =request.user.id)
+    lvl = 1
+    for i in range(count):
+        try:
+            temp = Student.objects.get(id=i+1)
+            if request.user.username == temp.user.username:
+                lvl = temp.current_level
+                student = temp
+        except ObjectDoesNotExist:
+            pass
+
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
     problems = []
@@ -197,10 +389,49 @@ def game6(request):
                 problems.append(rand.problem)
                 answers.append(rand.answer)
                 count = count + 1
-    return render(request,'student/game6.html',{'answerSet' : answers, 'problemSet' : problems})
+
+    if request.method == 'POST':
+        if "edit" in request.POST:
+            form = ScoreForm(request.POST)
+            if form.is_valid():
+                # Do stuff with the previous form if existed and save new form
+                try:
+                    CurrentScore = Score.objects.all().get(student = student, level = 6)
+                    if CurrentScore.score < int(form.data['score']):
+                        CurrentScore.delete()
+                        form.save()
+                except ObjectDoesNotExist:
+                    form.save()
+                    pass
+
+                CurrentScore = Score.objects.all().get(student = student, level = 6)
+                if lvl==6:
+                    if CurrentScore.score>=ScoreLimit:
+                        student.current_level = 7
+                        student.save()
+                return redirect('student.views.home')
+            else:
+                return redirect('student.views.profile')
+        else:
+            return redirect('student.views.home')
+    else:
+        form = ScoreForm()
+    return render(request,'student/game6.html',{'answerSet' : answers, 'problemSet' : problems, 'form':form, 'stud':student})
 
 @login_required
 def game7(request):
+    count = Student.objects.count()
+    # student = get_object_or_404(Student, pk =request.user.id)
+    lvl = 1
+    for i in range(count):
+        try:
+            temp = Student.objects.get(id=i+1)
+            if request.user.username == temp.user.username:
+                lvl = temp.current_level
+                student = temp
+        except ObjectDoesNotExist:
+            pass
+
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
     problems = []
@@ -219,7 +450,29 @@ def game7(request):
                 problems.append(rand.problem)
                 answers.append(rand.answer)
                 count = count + 1
-    return render(request,'student/game7.html',{'answerSet' : answers, 'problemSet' : problems})
+
+    if request.method == 'POST':
+        if "edit" in request.POST:
+            form = ScoreForm(request.POST)
+            if form.is_valid():
+                # Do stuff with the previous form if existed and save new form
+                try:
+                    CurrentScore = Score.objects.all().get(student = student, level = 7)
+                    if CurrentScore.score < int(form.data['score']):
+                        CurrentScore.delete()
+                        form.save()
+                except ObjectDoesNotExist:
+                    form.save()
+                    pass
+                return redirect('student.views.home')
+            else:
+                return redirect('student.views.profile')
+        else:
+            return redirect('student.views.home')
+    else:
+        form = ScoreForm()
+    return render(request,'student/game7.html',{'answerSet' : answers, 'problemSet' : problems, 'form':form, 'stud':student})
+
 
 def colorGame(request):
     return render(request,'student/coloringGame.html')
@@ -243,9 +496,8 @@ def studentedit(request):
                 if request.POST.get('email'):
                     user.email = request.POST.get('email')
                 user.save()
-                request.session['LAST_LOGIN_DATE'] = datetime.now()
-                logout(request)
-                return redirect('student.views.home')
+                update_session_auth_hash(request, user)
+            return redirect('student.views.home')
         else:
             return render(request, "student/home.html", {'name':request.user.username,'level':gameLevel})
     else:

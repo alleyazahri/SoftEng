@@ -4,6 +4,7 @@ from .forms import *
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
 from django.contrib.auth import logout
+from django.contrib.auth import *
 
 # Create your views here.
 
@@ -27,16 +28,14 @@ def teacheredit(request):
                 if request.POST.get('email'):
                     us.email = request.POST.get('email')
                 us.save()
-                logout(request)
-                return redirect('teacher.views.teacherhome')
+                update_session_auth_hash(request, us)
+            return redirect('teacher.views.teacherhome')
                 # return render(request, "teacher/teacherhome.html", {'form':form, 'firstName': request.user.first_name})
         else:
             return render(request, "teacher/teacherhome.html")
     else:
         form = TeacherForm()
     return render(request, "teacher/teacheredit.html", {'teach': us,  'form': form})
-
-
 
 
 
@@ -70,18 +69,12 @@ def edit_student(request, pk):
                 if request.POST.get('email'):
                     us.email = request.POST.get('email')
                 us.save()
-                logout(request)
-                return redirect('teacher.views.teacherhome')
-                # return render(request, "teacher/students.html", {'studentsList': students_table })
+            return redirect('teacher.views.teacherhome')
         else:
             return render(request, "teacher/students.html", {'studentsList': students_table })
     else:
         form = UserForm()
     return render(request, "teacher/editstudent.html", {'stud': us,  'form': form})
-
-
-
-
 
 
 @login_required

@@ -110,6 +110,12 @@ var ycoord = [311,306,401,243,333,  //1-5
 var cnst = 10;
 
 var score = 100; //the following function will subtract from the score if a student gets the wrong answer.
+document.getElementById("scoreOfTheStudent").value = score;
+document.getElementById('id_score').value = score;
+document.getElementById('id_level').value = 2;
+document.getElementById('id_student').value = document.getElementById("user").value;
+document.getElementById('SubmitScoreButton').disabled = true;
+
 function getPosition(event){
     if(event != undefined) {
         var x = event.x; //please ignore the constants on x and y - I just had to use them since I had already created my buttons.
@@ -135,14 +141,17 @@ function getPosition(event){
                 }
                 else {
                     tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
-                    score -= 2.5;
+                    score -= 2;
+                    document.getElementById("scoreOfTheStudent").value = score;
+                    document.getElementById('id_score').value = score;
                     break;
                 }
             }
         }
         //alert(isComplete);
-        if (isComplete){
+        if (isComplete) {
             problemBlock.innerHTML = "<h1> Great Work! </h1>";
+            document.getElementById("SubmitScoreButton").disabled = false;
         }
     }
 }
