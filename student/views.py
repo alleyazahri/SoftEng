@@ -217,23 +217,24 @@ def game2(request):
 
 @login_required
 def game3(request):
-    
-    # Make random problems:
+    # Get student
+    student = get_object_or_404(Student, user =request.user)
+    # lvl = student.current_level
+
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
     problems = []
     answers = []
     count = 0
-    terminate = 0 #debugging number, insures no infinite loop. DELETE WHEN PROBLEMS ARE IN DATABASE
-    while count<20 and terminate < 1000:
-        terminate += 1
+
+    while count<20:
         rand = random.randint(1,total)
         try:
             rand = Problem.objects.get(pk=rand)
         except ObjectDoesNotExist:
             pass
         if type(rand) is not int and rand.level == 3:
-            if rand.answer not in answers:
+            if rand.problem not in problems:
                 problems.append(rand.problem)
                 answers.append(rand.answer)
                 count = count + 1
