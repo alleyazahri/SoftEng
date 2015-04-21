@@ -129,7 +129,7 @@ function prepareCanvas()
 	
 	outlineImage.onload = function() { resourceLoaded(); 
 	};
-	outlineImage.src = "/static/images/cartoon-tiger-outline.png";
+	outlineImage.src = "/static/game7/penguins.png";
 
 	// Add mouse events
 	// ----------------

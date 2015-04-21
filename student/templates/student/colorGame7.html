@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{%block page_title%} Game 3 {%endblock page_title%}
+
+{%block page_title%} Color Game 7 {%endblock page_title%}
 {%block homepage%} {% url 'student.views.home' %} {%endblock homepage%}
 {% block userinformationurl %}
     <li> <a href = "{% url 'student.views.studentedit' %}">Profile edit</a></li>
@@ -34,10 +35,8 @@
     <input type="hidden" id="answers" value="{{ answerSet }}">
     <input type="hidden" id="questions" value="{{ problemSet }}">
     
-
-
     
-	<script type="text/javascript" src="{% static 'html5-canvas-drawing-app.js' %}"></script>
+	<script type="text/javascript" src="{% static 'colorGame7.js' %}"></script>
  	<script src="{% static 'placementGame.js' %}" type="text/javascript"></script>
  	
 	

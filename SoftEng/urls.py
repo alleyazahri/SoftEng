@@ -18,9 +18,9 @@ urlpatterns = patterns('',
     url(r'^student/game5$','student.views.game5'),
     url(r'^student/game6$','student.views.game6'),
     url(r'^student/game7$','student.views.game7'),
+    url(r'^student/colorgame7', 'student.views.colorGame7'),
     url(r'^student/profile$', 'student.views.profile'),
     url(r'^student/password$','student.views.changepword'),
-    url(r'^student/colorgame$', 'student.views.colorGame'),
     url(r'^student/edit$','student.views.studentedit'),
 
     #Teacher Stuff
