@@ -69,7 +69,7 @@ def edit_student(request, pk):
                 if request.POST.get('email'):
                     us.email = request.POST.get('email')
                 us.save()
-            return redirect('teacher.views.teacherhome')
+            return redirect('teacher.views.students')
         else:
             return render(request, "teacher/students.html", {'studentsList': students_table })
     else:

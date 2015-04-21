@@ -1,10 +1,13 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block page_title %}Edit Profile{% endblock page_title %}
+{% block head %}{% endblock head %}
 
 {%block header%}Edit Profile{%endblock header%}
 
 {%block homepage%}{% url 'student.views.home' %}{% endblock homepage %}
+
 {% block userinformationurl %}
     <li> <a href = "{% url 'student.views.studentedit' %}">Profile edit</a></li>
     <li> <a href = "{% url 'student.views.profile' %}">Profile</a></li>
@@ -12,17 +15,18 @@
 
 
 {% block content %}
-<br/>
-<div>
-    Username: {{ student.username }}<br/>
-    Name: {{student.first_name }} {{student.last_name }}<br/><br/><br/>
-    <div>
-        <form action="" method="post">
-            {% csrf_token %}
-            {{form}}
-            <br/><br/>
-            <button type="submit" name = "edit" value="ok">Edit</button>
-            <button type="submit" name = "back" value="no">Back</button>
-        </form>
-    </div>
-    {% endblock content %}
+<div class="transparentBox">
+    <br/>
+        Username: {{ student.username }}<br/>
+        Name: {{student.first_name }} {{student.last_name }}<br/><br/><br/>
+        <div>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{form}}
+                <br/><br/>
+                <button type="submit" name = "edit" value="ok">Edit</button>
+                <button type="submit" name = "back" value="no">Back</button>
+            </form>
+        </div>
+</div>
+{% endblock content %}
