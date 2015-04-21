@@ -88,8 +88,10 @@ TEMPLATE_CONTEXT_PROCESSORS = ('django.core.context_processors.request',
                                'django.contrib.auth.context_processors.auth')
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"),)
+#STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_ROOT = '/Users/danaadylova/Desktop/SoftEng/static/'
 
 LOGIN_URL = 'main_login'
 LOGOUT__URL = 'main_logout'

@@ -13,31 +13,31 @@
 {% endblock userinformationurl %}
 
 {%block content%}
-
-            <div>
-                {% if studentsList %}
-                    <table  border="1" style="width:100%">
-                        <tr>
-                            <td>Username</td>
-                            <td>First name</td>
-                            <td>Last name</td>
-                            <td>Current Level</td>
-                            <td></td>
-                        </tr>
-                        {% for stud in studentsList %}
-                            <tr>
-                                <td>{{stud.user.username}}</td>
-                                <td>{{stud.user.first_name }}</td>
-                                <td>{{stud.user.last_name }}</td>
-                                <td>{{stud.current_level }}</td>
-                                <td>
-                                    <a class = "list-group-item" href = "{% url 'teacher.views.studentinformation' pk=stud.user.id %}">Info</a>
-                                    <a class = "list-group-item" href = "{% url 'teacher.views.edit_student' pk=stud.user.id %}">Edit</a>
-                                </td>
-                             </tr>
-                        {% endfor %}
-                    </table>
-                {% endif %}
-            </div>
+<br/>
+    <div class="transparentBox">
+        {% if studentsList %}
+            <table  border="1" style="width:760px">
+                <tr>
+                    <td>Username</td>
+                    <td>First name</td>
+                    <td>Last name</td>
+                    <td>Current Level</td>
+                    <td></td>
+                </tr>
+                {% for stud in studentsList %}
+                <tr>
+                    <td>{{stud.user.username}}</td>
+                    <td>{{stud.user.first_name }}</td>
+                    <td>{{stud.user.last_name }}</td>
+                    <td>{{stud.current_level }}</td>
+                    <td>
+                        <a class = "list-group-item" href = "{% url 'teacher.views.studentinformation' pk=stud.user.id %}">Info</a>
+                        <a class = "list-group-item" href = "{% url 'teacher.views.edit_student' pk=stud.user.id %}">Edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+    </div>
 {% endblock content %}
 
