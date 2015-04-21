@@ -208,7 +208,7 @@ function getPosition(event){
                 }
                 else {
                     tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
-                    scorep2 -= 2.5;
+                    scorep2 -= 1.25;
                     score = parseInt(scorep2,10);
                     scoreBlock.innerHTML = "<h3>Current Score: " + score + "</h3>"; // Update the score that the user can see
                     formScore.value = score; // Update the score in the hidden form
