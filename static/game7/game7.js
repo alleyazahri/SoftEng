@@ -185,7 +185,7 @@ formScore.value = score; // Make the score field in the hidden form score.
 document.getElementById('id_level').value = 7;
 document.getElementById('id_student').value = document.getElementById("user").value;
 document.getElementById("SubmitScoreButton").disabled = true;
-
+document.getElementById("ColorPictureButton").disabled = true;
 function getPosition(event){
     if(event != undefined) {
         var x = event.x + 30; //please ignore the constants on x and y - I just had to use them since I had already created my buttons.
@@ -208,7 +208,7 @@ function getPosition(event){
                 }
                 else {
                     tryAgainBlock.innerHTML = "<h2>Try Again</h2>";
-                    scorep2 -= 1.25;
+                    scorep2 -= 2.5;
                     score = parseInt(scorep2,10);
                     scoreBlock.innerHTML = "<h3>Current Score: " + score + "</h3>"; // Update the score that the user can see
                     formScore.value = score; // Update the score in the hidden form
@@ -220,6 +220,7 @@ function getPosition(event){
         if (isComplete) {
             problemBlock.innerHTML = "<h1> Great Work! </h1><h3>Don't forget to save your score below!</h3>";
             document.getElementById("SubmitScoreButton").disabled = false; // Make the save my score button visible.
+            document.getElementById("ColorPictureButton").disabled = false; // Make the save my score button visible.
         }
     }
 }

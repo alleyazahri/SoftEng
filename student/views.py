@@ -180,7 +180,6 @@ def game2(request):
             pass
         if type(rand) is not int and rand.level == 2:
             if rand.answer not in answers:
-
                 problems.append(rand.problem)
                 answers.append(rand.answer)
                 count = count + 1
@@ -217,7 +216,55 @@ def game2(request):
 
 @login_required
 def game3(request):
-    return render(request,'student/game3.html')
+     # Get student
+    student = get_object_or_404(Student, user =request.user)
+    lvl = student.current_level
+    
+    # Make random problems:
+    total = Problem.objects.aggregate(Max('pk'))
+    total = total.get('pk__max')
+    problems = []
+    answers = []
+    count = 0
+    while count<18:
+        rand = random.randint(1,total)
+        try:
+            rand = Problem.objects.get(pk=rand)
+        except ObjectDoesNotExist:
+            pass
+        if type(rand) is not int and rand.level == 3:
+            problems.append(rand.problem)
+            answers.append(rand.answer)
+            count = count + 1
+
+    if request.method == 'POST':
+        if "edit" in request.POST:
+            form = ScoreForm(request.POST)
+            if form.is_valid():
+                # Do stuff with the previous form if existed and save new form
+                try:
+                    CurrentScore = Score.objects.all().get(student = student, level = 4)
+                    if CurrentScore.score < int(form.data['score']):
+                        CurrentScore.delete()
+                        form.save()
+                except ObjectDoesNotExist:
+                    form.save()
+                    pass
+
+                CurrentScore = Score.objects.all().get(student = student, level = 4)
+                if lvl==3:
+                    if CurrentScore.score>=ScoreLimit:
+                        student.current_level = 4
+                        student.save()
+                return redirect('student.views.home')
+            else:
+                return redirect('student.views.profile')
+        else:
+            return redirect('student.views.home')
+    else:
+        form = ScoreForm()
+    return render(request,'student/game3.html',{'answerSet' : answers, 'problemSet' : problems, 'form':form, 'stud':student})            
+   
 
 @login_required    
 def game4(request):
@@ -425,9 +472,30 @@ def game7(request):
         form = ScoreForm()
     return render(request,'student/game7.html',{'answerSet' : answers, 'problemSet' : problems, 'form':form, 'stud':student})
 
+@login_required
+def colorGame7(request):
+    # Get student
+    student = get_object_or_404(Student, user =request.user)
+    lvl = student.current_level
 
-def colorGame(request):
-    return render(request,'student/coloringGame.html')
+    total = Problem.objects.aggregate(Max('pk'))
+    total = total.get('pk__max')
+    problems = []
+    answers = []
+    count = 0
+
+    while count<18:
+        rand = random.randint(1,total)
+        try:
+            rand = Problem.objects.get(pk=rand)
+        except ObjectDoesNotExist:
+            pass
+        if type(rand) is not int and rand.level == 3:
+                problems.append(rand.problem)
+                answers.append(rand.answer)
+                count = count + 1
+    return render(request,'student/colorGame7.html',{'answerSet' : answers, 'problemSet' : problems})
+
 
 @login_required
 def studentedit(request):
