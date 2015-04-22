@@ -1,5 +1,6 @@
 var tryAgainBlock = document.getElementById("tryAgain"); //variable used to write 'Try Again' into
 var problemBlock = document.getElementById("problems"); //variable used to write problems into
+var scoreBlock = document.getElementById("curScore");
 
 var answers = document.getElementById("answers").value; //gets the answer set that is passed in from the HTML
 var problems = document.getElementById("questions").value; //gets the questions that are passed in from the HTML
@@ -52,11 +53,12 @@ function underLinePlacement(pos){
 		var underlineLetter = curProblem.slice(placement,placement+1);
 		var lastPartWord = curProblem.slice(placement+1, curProblem.length);
 
-		problemBlock.innerHTML = "<h1>" + firstPartWord + "<u>" + underlineLetter + "</u>" + lastPartWord + "</h1>";
+		problemBlock.innerHTML = "<b>" + firstPartWord + "<u>" + underlineLetter + "</u>" + lastPartWord + "</b>";
 	}else {
 		isComplete = true;
-		console.log("finished game")
-		problemBlock.innerHTML = "<p>Great Work!</p>";
+        document.getElementById("SubmitScoreButton").disabled = false; // Make the save my score button unclickable since the user just started the game.
+        tryAgainBlock.innerHTML = "<b> Great Work! </b><br><b>Don't forget to save your score to the right!</b>";
+        problemBlock.innerHTML ="";
 	}
 }
 
@@ -90,6 +92,13 @@ userAnswerHundred.onclick = function(){
 
 var markerUnlock = 0;
 var score = 100;
+//Form Stuff
+var formScore = document.getElementById('id_score');
+formScore.value = score; // Make the score field in the hidden form score.
+document.getElementById('id_level').value = 3; // Make the level field in the hidden form the current level.
+document.getElementById('id_student').value = document.getElementById("user").value; // Make the student field in the hidden form myself.
+document.getElementById("SubmitScoreButton").disabled = true; // Make the save my score button unclickable since the user just started the game.
+scoreBlock.innerHTML = "<h3> Score: " + score + "</h3>";
 function gameCheck(userAnswer, compAnswer){
 	if (buttonClicked == true && userAnswer == compAnswer){
 		console.log("winner", score);
@@ -101,7 +110,8 @@ function gameCheck(userAnswer, compAnswer){
 		return true;
 	}else if (buttonClicked == true && userAnswer != compAnswer){
 		score -= 6;
-		console.log("loser", score);
+        formScore.value = score;
+		scoreBlock.innerHTML = "<h3> Score: " + score + "</h3>";
 		tryAgainBlock.innerHTML = "<p>Try Again</p>";
 		return false;
 	}

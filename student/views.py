@@ -226,7 +226,7 @@ def game3(request):
     problems = []
     answers = []
     count = 0
-    while count<18:
+    while count<15:
         rand = random.randint(1,total)
         try:
             rand = Problem.objects.get(pk=rand)
@@ -243,7 +243,7 @@ def game3(request):
             if form.is_valid():
                 # Do stuff with the previous form if existed and save new form
                 try:
-                    CurrentScore = Score.objects.all().get(student = student, level = 4)
+                    CurrentScore = Score.objects.all().get(student = student, level = 3)
                     if CurrentScore.score < int(form.data['score']):
                         CurrentScore.delete()
                         form.save()
@@ -251,7 +251,7 @@ def game3(request):
                     form.save()
                     pass
 
-                CurrentScore = Score.objects.all().get(student = student, level = 4)
+                CurrentScore = Score.objects.all().get(student = student, level = 3)
                 if lvl==3:
                     if CurrentScore.score>=ScoreLimit:
                         student.current_level = 4

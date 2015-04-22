@@ -20,17 +20,18 @@
     	 	prepareCanvas();
 		});</script>
     </div>
-   	
-    <div id ="probBlock" style="float:left;width:106px"> <!--style="position:fixed; left:559px; top:730px; width:210px; height:416px; border: 2px solid darkgray" align="center"-->
-        <h2>Problem:</h2>
-        <div id = "problems" style="float:left;width:106px"></div>
-        <div id = "tryAgain" style="float:left;width:106px"></div>
-        <div id = "buttons" style="float:left;width:106px">
-			<button id = "one" style="float:left">Ones</button>
-			<button id = "ten" style="float:left">Tens</button>
-			<button id = "hundred" style="float:left">Hundreds</button>
-		</div>
+
+    <div id ="probBlock" style="position:fixed; top:470px;left:380px;font-size:x-large"> <!--style="position:fixed; left:559px; top:730px; width:210px; height:416px; border: 2px solid darkgray" align="center"-->
+        <b>Problem:</b><br>
+        <div id = "problems" style="float:left;width:106px;font-size:xx-large"></div><br>
+        <br>
+        <div id = "buttons" style="float:left">
+            <button id = "one" style="float:left">Ones</button>
+            <button id = "ten" style="float:left">Tens</button>
+            <button id = "hundred" style="float:left">Hundreds</button>
+        </div>
     </div>
+    <div id = "tryAgain" style="float:left;width:300px;position:fixed;top:470px;left:600px;font-size:large"></div>
     
     <input type="hidden" id="answers" value="{{ answerSet }}">
     <input type="hidden" id="questions" value="{{ problemSet }}">
