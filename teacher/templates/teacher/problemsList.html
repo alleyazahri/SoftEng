@@ -10,9 +10,12 @@
 
 {% block content %}
 <br/>
-<form action="{% url 'teacher.views.new_problem' %}">
-    <input type="submit" value="New Problem">
-</form>
+<section class = "loginform cf">
+    <form action="{% url 'teacher.views.new_problem' %}">
+        <input type="submit" value="New Problem">
+    </form>
+</section>
+
 <!--<a href = "{% url 'teacher.views.new_problem' %}">New Problem</a>-->
 <br/>
     <div class="transparentBox">

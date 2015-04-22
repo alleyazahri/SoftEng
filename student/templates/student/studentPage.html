@@ -16,6 +16,7 @@ Student Profile
 {% block header %} Welcome, {{ fname }} {{ lname }} {% endblock header %}
 
 {% block content %}
+<div class="transparentBox">
 <table style="width:200px; border-collapse: collapse; border-width:1px; border-color:#336600;border-style:solid;color:#009900;">
     <tbody>
     <tr>
@@ -86,7 +87,7 @@ Student Profile
     </tr>
     </tbody>
 </table>
-
+</div>
 <script type="text/javascript">
     if ({{ firstScore }} != "-"){
         document.getElementById("NA").innerHTML = "<img src = '/static/Wolf.png' width='89' height='100'>"
