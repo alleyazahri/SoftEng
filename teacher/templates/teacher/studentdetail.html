@@ -12,13 +12,15 @@
 
 
 {% block content %}
-    <br/>
+<br/>
+<div class="transparentBox">
     Username: {{ stud.username }}<br/>
     Name: {{stud.first_name }} {{stud.last_name }}<br/>
     Email: {{stud.email }}<br/>
+    <br/>
     Level information:<br/>
     <div>
-        <table  border="1" style="width:50%">
+        <table  border="1" style="width:200px">
             <tr>
                 <td>Level</td>
                 <td>Score</td>
@@ -39,5 +41,5 @@
             {% endfor %}
         </table>
     </div>
-
+</div>
 {% endblock content %}

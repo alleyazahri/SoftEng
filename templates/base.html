@@ -10,18 +10,16 @@
     </header>
     
    
-    <body>
-    <div class="container">
+    <body background="/static/Background/Blue_gaussian_blur.jpg">
+    <div class="container" >
 		<div class = "nav" >	
 			<div class = "navagation">
+                {% if user.is_authenticated %}
 				<ul id = "navbar" class = "nav navbar-nav navbar-right">
 					<li><a href = {%block homepage%} "#" {% endblock homepage %} >Home</a></li>
-					{% if user.is_authenticated %}
             		{%block userinformationurl%}<!-- url for user info goes here -->{%endblock userinformationurl%}
             		<li><a href="{% url 'main_logout' %}">Logout</a></li>
-            		{% else %}
-            		<li><a href="{% url 'main_login' %}">Login</a></li>
-            		{% endif %}   
+                    {% endif %}
 				</ul>
 			</div>
 		</div>

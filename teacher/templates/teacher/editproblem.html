@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
-{% block page_title %}Delete Problem{% endblock page_title %}
-{% block header %}Delete Problem{% endblock header %}
+{% block page_title %}Edit Problem{% endblock page_title %}
+{% block header %}Edit Problem{% endblock header %}
 {%block homepage%}"{% url 'teacher.views.teacherhome' %}"{% endblock homepage %}
 {% block userinformationurl %}
 	{% include "teachernavbar.html" %}
@@ -10,7 +10,7 @@
 
 {% block content %}
 <br/>
-<div>
+<div class="transparentBox">
     Problem: {{ prob.problem }}<br/>
     Answer: {{ prob.answer }}<br/>
     Type: {{ prob.type }}<br/>

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{%include 'student_interface.html' %}
+{%block homepage%}{% url 'student.views.home' %}{% endblock homepage %}
 
 {% block userinformationurl %}
     <li> <a href = "{% url 'student.views.studentedit' %}">Profile edit</a></li>
@@ -26,10 +26,6 @@
 
             <div id ="seven"></div>
         </map>
-
-
-
-
 
 
 <script type="text/javascript">

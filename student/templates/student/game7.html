@@ -11,18 +11,18 @@
 {% endblock userinformationurl %}
 
 {%block content%}
-    <div id ="canv" style="display: inline-block; position: fixed; top:175px; left: 140px">
+    <div id ="canv" style="background: white;display: inline-block; position: fixed; top:175px; left: 140px">
         <canvas id ="gameCanvas" onclick="getPosition(event)"></canvas>
     </div>
-    <div id="instructions" style="border: 2px solid darkgray; position: fixed; left:140px; top:114px; width:629px;" align="center">
+    <div id="instructions" style="background: white;border: 2px solid darkgray; position: fixed; left:140px; top:114px; width:629px;" align="center">
         <h3>Connect the dots by solving the math equations to the right of the picture!</h3>
     </div>
-    <div id ="probBlock" style="position:fixed; left:559px; top:175px; width:210px; height:300px; border: 2px solid darkgray" align="center">
+    <div id ="probBlock" style="background: white;position:fixed; left:559px; top:175px; width:210px; height:300px; border: 2px solid darkgray" align="center">
         <h2>Problem:</h2>
         <div id = "problems"></div>
         <div id = "tryAgain"></div>
     </div>
-    <div id ="scoreBlock" style="position:fixed; left:559px; top:475px; width:200px; height:116px; border: 2px solid darkgray; padding-left:10px" align="left" >
+    <div id ="scoreBlock" style="background: white; position:fixed; left:559px; top:475px; width:200px; height:116px; border: 2px solid darkgray; padding-left:10px" align="left" >
         <div id = "curScore"></div>
         <!--The score form. The major inputs are hidden, the submit button is visible but unclickable if the game is not finished:-->
         <form action="" method="post">

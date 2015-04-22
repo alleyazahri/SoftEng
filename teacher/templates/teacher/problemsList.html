@@ -10,11 +10,17 @@
 
 {% block content %}
 <br/>
-<a href = "{% url 'teacher.views.new_problem' %}">New Problem</a>
+<section class = "loginform cf">
+    <form action="{% url 'teacher.views.new_problem' %}">
+        <input type="submit" value="New Problem">
+    </form>
+</section>
+
+<!--<a href = "{% url 'teacher.views.new_problem' %}">New Problem</a>-->
 <br/>
-    <div>
+    <div class="transparentBox">
         {% if problemslist %}
-            <table  border="1" style="width:100%">
+            <table  border="1" style="width:760px">
                 <tr>
                     <td>Problem</td>
                     <td>Answer</td>

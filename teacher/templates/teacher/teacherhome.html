@@ -13,10 +13,13 @@
 
 {% block content %}
 <br/>
-    Welcome, {{ firstName }}!
 
-{% if form %}
-    <br/>
-    Information saved
-{% endif %}
+<div class="transparentBox">
+    Welcome, {{ firstName }}!
+    {% if form %}
+        <br/>
+        Information saved
+    {% endif %}
+</div>
+
 {% endblock content %}
