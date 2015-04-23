@@ -3,7 +3,7 @@
 
 
 {%block page_title%} Game 4 {%endblock page_title%}
-{%block header%} Fourth Game {%endblock header%}
+{%block header%} Europe {%endblock header%}
 {%block homepage%} {% url 'student.views.home' %} {%endblock homepage%}
 {% block userinformationurl %}
     <li> <a href = "{% url 'student.views.studentedit' %}">Profile edit</a></li>
@@ -15,7 +15,7 @@
         <canvas id ="gameCanvas" onclick="getPosition(event)"></canvas>
     </div>
     <div id="instructions" style="background: white;border: 2px solid darkgray; position: fixed; left:140px; top:114px; width:629px;" align="center">
-        <h3>Connect the dots by solving the math equations to the right of the picture!</h3>
+        <h4>Connect the dots by solving the math equations to the right of the picture!</h4>
     </div>
     <div id ="probBlock" style="background: white;position:fixed; left:559px; top:175px; width:210px; height:300px; border: 2px solid darkgray" align="center">
         <h2>Problem:</h2>

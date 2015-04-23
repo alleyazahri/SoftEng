@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {%block page_title%} Game 3 {%endblock page_title%}
+{%block header%} Africa {%endblock header%}
 {%block homepage%} {% url 'student.views.home' %} {%endblock homepage%}
 {% block userinformationurl %}
     <li> <a href = "{% url 'student.views.studentedit' %}">Profile edit</a></li>

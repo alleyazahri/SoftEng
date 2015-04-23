@@ -165,7 +165,8 @@ def game2(request):
     # Get student
     student = get_object_or_404(Student, user =request.user)
     lvl = student.current_level
-
+    if lvl<2:
+        return redirect('student.views.home')
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
     problems = []
@@ -219,7 +220,8 @@ def game3(request):
      # Get student
     student = get_object_or_404(Student, user =request.user)
     lvl = student.current_level
-    
+    if lvl<3:
+         return redirect('student.views.home')
     # Make random problems:
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
@@ -271,7 +273,8 @@ def game4(request):
     # Get student
     student = get_object_or_404(Student, user =request.user)
     lvl = student.current_level
-
+    if lvl<4:
+        return redirect('student.views.home')
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
     problems = []
@@ -324,7 +327,8 @@ def game5(request):
     # Get student
     student = get_object_or_404(Student, user =request.user)
     lvl = student.current_level
-
+    if lvl<5:
+        return redirect('student.views.home')
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
     problems = []
@@ -377,7 +381,8 @@ def game6(request):
     # Get student
     student = get_object_or_404(Student, user =request.user)
     lvl = student.current_level
-
+    if lvl<6:
+        return redirect('student.views.home')
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
     problems = []
@@ -430,7 +435,8 @@ def game7(request):
     # Get student
     student = get_object_or_404(Student, user =request.user)
     lvl = student.current_level
-
+    if lvl<7:
+        return redirect('student.views.home')
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
     problems = []
@@ -463,11 +469,11 @@ def game7(request):
                 except ObjectDoesNotExist:
                     form.save()
                     pass
-                return redirect('student.views.home')
+                return redirect('student.views.colorGame7')
             else:
                 return redirect('student.views.profile')
         else:
-            return redirect('student.views.home')
+            return redirect('student.views.colorGame7')
     else:
         form = ScoreForm()
     return render(request,'student/game7.html',{'answerSet' : answers, 'problemSet' : problems, 'form':form, 'stud':student})
@@ -478,6 +484,10 @@ def colorGame7(request):
     student = get_object_or_404(Student, user =request.user)
     lvl = student.current_level
 
+    try:
+        CurrentScore = Score.objects.all().get(student = student, level = 7)
+    except ObjectDoesNotExist:
+        return redirect('student.views.home')
     total = Problem.objects.aggregate(Max('pk'))
     total = total.get('pk__max')
     problems = []
